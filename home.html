@@ -116,9 +116,13 @@
 
       .modal-footer{ display:flex; gap:12px; justify-content:space-between; align-items:center; margin-top:12px; flex-wrap:wrap; padding-bottom:8px }
       .secondary{ background:linear-gradient(180deg,#6ea2cf,#588fbe); color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.2); border:2px solid #fff; outline:1px solid #c7d9ea; border-radius:12px; text-decoration:none; font-weight:700; transition:transform .06s ease, filter .15s ease }
-      .links-pack{ display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start }
-      .links-pack>h2{ flex:0 0 100%; margin:0 0 8px 0 }
-      .links-pack .secondary{ display:inline-flex; align-items:center; padding:8px 12px; line-height:1.2; white-space:normal; flex:0 1 auto; border-radius:12px }
+      .links-pack{ margin-top:20px; padding-top:18px; border-top:1.5px solid #dce8f5; }
+      .links-pack>h2{ font-size:13px; font-weight:700; color:#5F5E5A; text-transform:uppercase; letter-spacing:0.07em; margin:0 0 14px 0; }
+      .links-pack-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+      .links-pack-card{ display:flex; flex-direction:column; align-items:flex-start; gap:6px; padding:12px 14px; background:#f8fbff; border:1.5px solid #b5d4f4; border-radius:12px; text-decoration:none; color:#0C447C; font-size:14px; font-weight:600; line-height:1.3; transition:background .15s ease, transform .1s ease; }
+      .links-pack-card:hover{ background:#e6f1fb; transform:translateY(-2px); }
+      .links-pack-card .lp-icon{ font-size:20px; margin-bottom:2px; }
+      .links-pack-card .lp-arrow{ font-size:16px; margin-top:auto; color:#185FA5; align-self:flex-end; }
 
       /* Print/handout (no FAB now) */
       .print-stage{ position:fixed; left:-10000px; top:-10000px; width:794px; padding:24px; background:#fff }
@@ -267,11 +271,33 @@
 
           <div class="links-pack">
             <h2>More questions to explore</h2>
-            <a class="secondary" href="./diagnosis/diagnosis.html">After being diagnosed</a>
-            <a class="secondary" href="./choosingtreatment/choosingtreatment.html">Choosing treatment</a>
-            <a class="secondary" href="./treatment/treatment.html">During treatment</a>
-            <a class="secondary" href="./aftertreatment/aftertreatment.html">After treatment</a>
-            <a class="secondary" href="./complementary/complementary.html">About integrative therapy</a>
+            <div class="links-pack-grid">
+              <a class="links-pack-card" href="./diagnosis/diagnosis.html">
+                <span class="lp-icon">&#128203;</span>
+                After being diagnosed
+                <span class="lp-arrow">&#8250;</span>
+              </a>
+              <a class="links-pack-card" href="./choosingtreatment/choosingtreatment.html">
+                <span class="lp-icon">&#9878;&#65039;</span>
+                Choosing treatment
+                <span class="lp-arrow">&#8250;</span>
+              </a>
+              <a class="links-pack-card" href="./treatment/treatment.html">
+                <span class="lp-icon">&#128138;</span>
+                During treatment
+                <span class="lp-arrow">&#8250;</span>
+              </a>
+              <a class="links-pack-card" href="./aftertreatment/aftertreatment.html">
+                <span class="lp-icon">&#127775;</span>
+                After treatment
+                <span class="lp-arrow">&#8250;</span>
+              </a>
+              <a class="links-pack-card" href="./complementary/complementary.html">
+                <span class="lp-icon">&#127807;</span>
+                Integrative therapy
+                <span class="lp-arrow">&#8250;</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
