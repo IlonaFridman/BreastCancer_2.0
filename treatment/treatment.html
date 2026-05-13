@@ -517,6 +517,38 @@ img{max-width:100%!important;height:auto!important}
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
       
 
+</body></html>`;
+    const w = window.open('', '_blank');
+    w.document.open(); w.document.write(html); w.document.close();
+  }
+
+  async function emailSelectedPDF(){
+    const pdf = await createHandoutPDF();
+    if (!pdf) return;
+
+    const blob = pdf.output('blob');
+    const file = new File([blob], 'questions-handout.pdf', {type:'application/pdf'});
+
+    if (navigator.canShare && navigator.canShare({ files:[file] })){
+      await navigator.share({
+        files:[file],
+        title:'Questions Handout',
+        text:'Please see attached questions handout.'
+      }).catch(()=>{});
+      return;
+    }
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'questions-handout.pdf'; a.click();
+    URL.revokeObjectURL(url);
+    const body = encodeURIComponent(
+      'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded it—please see the downloaded file.'
+    );
+    window.location.href = `mailto:?subject=${encodeURIComponent('Questions Handout')}&body=${body}`;
+  }
+</script>
+
 <script id="bc-qfix">
 document.addEventListener('DOMContentLoaded', function() {
   function updateList() {
@@ -570,38 +602,6 @@ document.addEventListener('DOMContentLoaded', function() {
   updateList();
 });
 </script>
-</body></html>`;
-    const w = window.open('', '_blank');
-    w.document.open(); w.document.write(html); w.document.close();
-  }
-
-  async function emailSelectedPDF(){
-    const pdf = await createHandoutPDF();
-    if (!pdf) return;
-
-    const blob = pdf.output('blob');
-    const file = new File([blob], 'questions-handout.pdf', {type:'application/pdf'});
-
-    if (navigator.canShare && navigator.canShare({ files:[file] })){
-      await navigator.share({
-        files:[file],
-        title:'Questions Handout',
-        text:'Please see attached questions handout.'
-      }).catch(()=>{});
-      return;
-    }
-
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'questions-handout.pdf'; a.click();
-    URL.revokeObjectURL(url);
-    const body = encodeURIComponent(
-      'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded it—please see the downloaded file.'
-    );
-    window.location.href = `mailto:?subject=${encodeURIComponent('Questions Handout')}&body=${body}`;
-  }
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
 </body>
