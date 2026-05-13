@@ -77,6 +77,8 @@
     .home-link:hover{transform:translateY(-1px)}
     .home-link:focus-visible{outline:none;box-shadow:var(--ring)}
     .home-link svg{width:22px;height:22px;fill:#374151}
+  .home-link::after{ content:none !important; display:none !important; }
+
 
     @media (max-width:760px){
       .layout{grid-template-columns:1fr;gap:28px}
