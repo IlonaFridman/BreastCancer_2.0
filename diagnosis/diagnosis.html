@@ -168,6 +168,15 @@ h1.slide-title {
   .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; color:#fff; }
   .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.85; line-height:1.2; color:#fff; }
   .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
+
+  .journey-bar{ display:flex; align-items:center; gap:8px; padding:8px 16px; background:#f0f7ff; border-bottom:1px solid #d0e4f5; flex-wrap:wrap; }
+  .jb-home{ display:inline-flex; align-items:center; gap:5px; padding:5px 12px; border-radius:20px; background:#fff; border:1px solid #c5d8ec; color:#5F5E5A; font-size:12px; font-weight:600; text-decoration:none; }
+  .jb-home:hover{ background:#e6f1fb; }
+  .jb-btn{ display:inline-flex; align-items:center; gap:5px; padding:5px 14px; border-radius:20px; font-size:12px; font-weight:600; text-decoration:none; border:1px solid #c5d8ec; background:#fff; color:#5a6a7a; transition:background .15s; }
+  .jb-btn:hover{ background:#e6f1fb; color:#185FA5; }
+  .jb-btn.active{ background:#185FA5; color:#fff; border-color:#185FA5; }
+  .jb-btn.active::before{ content:"●"; font-size:8px; margin-right:2px; }
+  .jb-btn:not(.active)::before{ content:"○"; font-size:8px; margin-right:2px; color:#aaa; }
 </style>
 </head>
 <body>
@@ -198,6 +207,14 @@ h1.slide-title {
         </a>
       </div>
     </header>
+  <div class="journey-bar">
+    <a class="jb-home" href="../home.html">&#8962; Home</a>
+    <a class="jb-btn active" href="../diagnosis/diagnosis.html">After diagnosis</a>
+    <a class="jb-btn" href="../choosingtreatment/choosingtreatment.html">Choosing treatment</a>
+    <a class="jb-btn" href="../treatment/treatment.html">During treatment</a>
+    <a class="jb-btn" href="../aftertreatment/aftertreatment.html">After treatment</a>
+    <a class="jb-btn" href="../complementary/complementary.html">Integrative therapy</a>
+  </div>
 <!-- ==== HOME BUTTON – element ==== -->
   
 <a id="page-top"></a>
@@ -580,18 +597,6 @@ h1.slide-title {
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
 
-<style id="journey-nav-css">
-  .journey-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 8px;background:#f0f7ff;border-bottom:1.5px solid #b5d4f4;font-size:13px;}
-  .journey-step{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;text-decoration:none;font-weight:600;border:1.5px solid transparent;white-space:nowrap;}
-  .journey-step-done{background:#EAF3DE;color:#27500A;border-color:#C0DD97;}
-  .journey-step-active{background:#185FA5;color:#fff;border-color:#185FA5;}
-  .journey-step-todo{background:#fff;color:#888780;border-color:#D3D1C7;}
-  .journey-step-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-  .journey-step-done .journey-step-dot{background:#3B6D11;}
-  .journey-step-active .journey-step-dot{background:#fff;}
-  .journey-step-todo .journey-step-dot{background:#B4B2A9;}
-  .journey-home{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:20px;background:#fff;border:1.5px solid #D3D1C7;color:#5F5E5A;text-decoration:none;font-size:13px;font-weight:600;margin-right:4px;}
-</style>
 <style id="font-toggle-css">
   .font-toggle-wrap{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1.5px solid #b5d4f4;border-radius:8px;padding:3px 7px;}
   .font-toggle-label{font-size:11px;color:#888780;margin-right:2px;}
