@@ -56,16 +56,6 @@
     </style>
   </head>
   <body>
-<style>
-.home-link{position:fixed;top:12px;left:12px;z-index:900;display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1px solid #ddd;border-radius:10px;color:#333;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.12)}
-.home-link:hover{background:#f5f5f5}
-</style>
-<a class="home-link" href="home.html" aria-label="Go to Home">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/>
-    </svg>
-  </a>
-
     <main class="wrap" role="main">
       <section class="card" aria-labelledby="introTitle">
         <!-- Back to home -->
@@ -91,11 +81,8 @@
             <p><strong>You're in control.</strong> Explore the section that feels right for you, or select “Start Here” to see a shorter list of questions.</p>
 
             <div class="actions" role="group" aria-label="Instruction actions">
-              <!-- Explore home (no modal) -->
-              <a class="btn btn-primary" href="home.html" data-mark-seen>Explore here</a>
-
               <!-- Deep-link to open Start modal on home -->
-              <a class="btn btn-secondary" href="home.html#start" data-mark-seen>Open “Start here”</a>
+              <a class="btn btn-primary" href="home.html#start" data-mark-seen style="font-size:1.1em; padding: 0.75em 2em; background-color:#1a5fa8; color:#fff; border-color:#1a5fa8; font-weight:600; box-shadow: 0 2px 8px rgba(26,95,168,0.3);">Start Here</a>
             </div>
 
             <noscript>
