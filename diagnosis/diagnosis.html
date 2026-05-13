@@ -24,29 +24,28 @@
   .layout{display:grid;grid-template-columns:1fr 380px;gap:42px;align-items:start}
 
   /* ==== HOME BUTTON – styles ==== */
-  .home-link{
-    position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
-    width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
-  }
-  .home-link:hover{transform:translateY(-1px)}
-  .home-link:focus-visible{outline:none;box-shadow:var(--ring)}
-  .home-link svg{width:22px;height:22px;fill:#374151}
+.home-link{
+  position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
+}
+.home-link:hover{transform:translateY(-1px)}
+.home-link:focus-visible{outline:none;box-shadow:var(--ring)}
+.home-link svg{width:22px;height:22px;fill:#374151}
   .home-link::after{ content:none !important; display:none !important; }
-  /* ==== HOME BUTTON – styles END ==== */
+/* ==== HOME BUTTON – styles END ==== */
 
-  /* Slide heading */
   h1.slide-title {
-    font-size: clamp(2rem, 2.2vw + 1.2rem, 2.75rem);
-    line-height: 1.2;
-    margin: 0 0 0.5rem;
-    font-weight: 800;
-  }
+        font-size: clamp(2rem, 2.2vw + 1.2rem, 2.75rem);
+        line-height: 1.2;
+        margin: 0 0 0.5rem;
+        font-weight: 800;
+      }
   h2.slide-title {
-    font-size: clamp(1.25rem, 1.2vw + 0.9rem, 1.75rem);
-    line-height: 1.3;
-    margin: 0 0 1rem;
-    font-weight: 600;
-  }
+        font-size: clamp(1.25rem, 1.2vw + 0.9rem, 1.75rem);
+        line-height: 1.3;
+        margin: 0 0 1rem;
+        font-weight: 600;
+      }
 
   /* Toolbar */
   .toolbar{display:flex;gap:8px;align-items:center;margin:0 0 12px 0}
@@ -57,8 +56,14 @@
   }
   .tool-btn:hover{background:#eef1f5;transform:translateY(-1px)}
   .tool-btn:focus-visible{outline:none;box-shadow:var(--ring)}
-  .tool-btn[disabled]{opacity:.6;cursor:not-allowed}
-  .tool-btn[disabled]:hover{transform:none;background-color:#f5f6f8}
+  .tool-btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .tool-btn[disabled]:hover {
+    transform: none;
+    background-color: #f5f6f8;
+  }
 
   /* LEFT (Accordion) */
   .stack{display:flex;flex-direction:column;gap:14px;min-width:300px}
@@ -69,12 +74,21 @@
     text-align:left;position:relative;transition:background-color .15s,transform .06s;
     font-size:22px;
   }
-  .acc-header::before{
-    content:"▸";
-    position:absolute; left:14px; top:50%; transform:translateY(-50%);
-    font-size:35px; color:#4b5563; opacity:.95;
-  }
-  .acc-header[aria-expanded="true"]::before{ content:"▾" }
+ .acc-header::before{
+  content:"▸";                 /* right-pointing caret */
+  position:absolute;
+  left:14px; top:50%;
+  transform:translateY(-50%);
+  font-size:35px;
+  color:#4b5563;               /* dark gray, darker than panel */
+  opacity:.95;
+}
+
+/* Open: arrow faces down */
+.acc-header[aria-expanded="true"]::before{
+  content:"▾";                 /* down-pointing caret */
+}
+  .acc-header[aria-expanded="true"]::before{ transform:translateY(-50%) rotate(0deg) }
   .acc-header:hover{background:var(--panel-hover);transform:translateY(-1px)}
   .acc-header:focus-visible{outline:none;box-shadow:var(--ring)}
   .acc-header .cat-icon{width:26px;height:26px;flex:0 0 26px;}
@@ -88,7 +102,7 @@
 
   /* RIGHT (actions) */
   .side{display:flex;flex-direction:column;gap:14px}
-
+  
   /* Main blue action buttons */
   .cta{
     display:inline-block;text-decoration:none;color:#fff;font-weight:700;font-size:18px;
@@ -102,8 +116,13 @@
   .cta:focus-visible{outline:none;box-shadow:var(--ring)}
   .cta[disabled]{opacity:.55;cursor:not-allowed;filter:grayscale(0.35)}
 
-  /* Tool buttons in side panel */
-  .side .tool-btn{ width:100%; font-size:18px; padding:14px 18px; text-align:center }
+  /* Style for tool buttons in the side panel */
+  .side .tool-btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 14px 18px;
+    text-align: center;
+  }
 
   .pic-wrap{width:100%;max-width:340px;margin-top:6px}
   .pic{width:100%;height:auto;border:2px solid #c9ced6;border-radius:10px;display:block}
@@ -111,20 +130,25 @@
   .hint{font-size:14px;color:#374151}
 
   /* Hidden handout container for PDF/print/email rendering */
-  .print-stage{position:fixed;left:-10000px;top:-10000px;width:794px;padding:24px;background:#fff}
+  .print-stage{position:fixed;left:-10000px;top:-10000px;width:794px; /* ~A4 width at 96dpi */ padding:24px;background:#fff}
 
-  /* Handout outline styling (MATCHES HOME PAGE) */
-  .handout{ font-family: Arial, Helvetica, sans-serif; color:#0f172a; line-height:1.55; font-size:18px; }
-  .handout .frame{ border:6px solid #6aa1cc; border-radius:36px; padding:16px; }
+  /* Handout outline styling (matches your screenshot) */
+  .handout{
+    font-family: Arial, Helvetica, sans-serif; color:#0f172a; line-height:1.55; font-size:18px;
+  }
+  .handout .frame{
+    border:6px solid #6aa1cc; border-radius:36px; padding:16px; 
+  }
   .handout .chip{
     display:block;text-align:center;font-weight:700;font-size:22px;color:#1b4e73;
     background:#e8f3ff;border:4px solid #6aa1cc;border-radius:16px;padding:10px 14px;margin:8px auto 14px; width:fit-content; min-width:340px;
   }
-  .handout .panel{ border:6px solid #6aa1cc;border-radius:28px;padding:16px;min-height:160px; }
-  .handout h4{ margin:0 0 8px; font-size:18px; }
+  .handout .panel{
+    border:6px solid #6aa1cc;border-radius:28px;padding:16px;min-height:160px;
+  }
+  .handout h4{ margin:0 0 8px; font-size:18px; } /* added to match Code 1 */
   .handout ul{margin:0;padding-left:22px}
   .handout li{margin:8px 0}
-
   @media (max-width:760px){
     .layout{grid-template-columns:1fr;gap:28px}
     .side .cta{width:100%;min-width:unset}
@@ -132,27 +156,12 @@
 </style>
 </head>
 <body>
-  <!-- ==== HOME BUTTON – element ==== -->
+<!-- ==== HOME BUTTON – element ==== -->
   <a class="home-link" href="https://ilonafridman.github.io/BreastCancer_2.0/home.html" aria-label="Go to Home">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
   </a>
-
+  
 <a id="page-top"></a>
-<div style="position:sticky;top:0;z-index:49;background:#f0f7ff;border-bottom:1px solid #b5d4f4;padding:5px 16px;display:flex;align-items:center;">
-  <span class="font-toggle-wrap" aria-label="Text size">
-    <span class="font-toggle-label">Text</span>
-    <button class="ft-btn active" data-size="normal" aria-label="Normal text size">A</button>
-    <button class="ft-btn" data-size="large" aria-label="Large text size" style="font-size:17px;">A+</button>
-  </span>
-</div>
-<nav class="journey-nav" aria-label="Your care journey">
-    <a class="journey-home" href="../home.html">&#8962; Home</a>
-    <a class="journey-step journey-step-active" href="../diagnosis/diagnosis.html"><span class="journey-step-dot"></span>After diagnosis</a>
-    <a class="journey-step journey-step-todo" href="../choosingtreatment/choosingtreatment.html"><span class="journey-step-dot"></span>Choosing treatment</a>
-    <a class="journey-step journey-step-todo" href="../treatment/treatment.html"><span class="journey-step-dot"></span>During treatment</a>
-    <a class="journey-step journey-step-todo" href="../aftertreatment/aftertreatment.html"><span class="journey-step-dot"></span>After treatment</a>
-    <a class="journey-step journey-step-todo" href="../complementary/complementary.html"><span class="journey-step-dot"></span>Integrative therapy</a>
-</nav>
 
 <main class="container" aria-label="Slide-like layout">
   <section class="layout">
@@ -240,23 +249,23 @@
 
   const Icons = {
     hourglass: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12" /><path d="M7 3c0 5 5 5 5 9s-5 4-5 9M17 3c0 5-5 5-5 9s5 4 5 9" /><path d="M9 7h6M9 17h6" /></svg>`,
-    hug:        () => `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="6.5" r="2.3" /><circle cx="16" cy="6.5" r="2.3" /><path d="M3.5 18c2-4 5-5 8.5-5s6.5 1 8.5 5" /><path d="M6 14l2.5 2.5M18 14l-2.5 2.5" /></svg>`,
+    hug: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="6.5" r="2.3" /><circle cx="16" cy="6.5" r="2.3" /><path d="M3.5 18c2-4 5-5 8.5-5s6.5 1 8.5 5" /><path d="M6 14l2.5 2.5M18 14l-2.5 2.5" /></svg>`,
     microscope: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l3 3" /><rect x="9.5" y="5.5" width="3" height="6" rx="1" /><path d="M7 13h10" /><path d="M5 19h14M7 13c-2 1-3 3-3 6" /></svg>`,
-    stethoscope:() => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v4a4 4 0 0 0 8 0V3" /><path d="M10 11v2a5 5 0 0 0 10 0v-1" /><circle cx="20" cy="12" r="1.8" /></svg>`,
-    book:       () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3z" /><path d="M7 5v17" /><path d="M11 9h4M11 12h4" /></svg>`,
-    bulb:       () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 1 5 11c-1 1-2 2-2 3H9c0-1-1-2-2-3A7 7 0 0 1 12 3z" /><path d="M9 20h6M10 22h4" /></svg>`,
-    beaker:     () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8M10 3v6L5 21h14l-5-12V3" /><path d="M7 16h10" /></svg>`
+    stethoscope: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v4a4 4 0 0 0 8 0V3" /><path d="M10 11v2a5 5 0 0 0 10 0v-1" /><circle cx="20" cy="12" r="1.8" /></svg>`,
+    book: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3z" /><path d="M7 5v17" /><path d="M11 9h4M11 12h4" /></svg>`,
+    bulb: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 1 5 11c-1 1-2 2-2 3H9c0-1-1-2-2-3A7 7 0 0 1 12 3z" /><path d="M9 20h6M10 22h4" /></svg>`,
+    beaker: () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8M10 3v6L5 21h14l-5-12V3" /><path d="M7 16h10" /></svg>`
   };
 
+  // MODIFIED: Updated icon logic for new categories
   function iconFor(title){
     const t = title.toLowerCase();
-    if (t.includes('time')) return Icons.hourglass();
-    if (t.includes('support') || t.includes('coping')) return Icons.hug();
-    if (t.includes('diagnosis') || t.includes('test')) return Icons.microscope();
-    if (t.includes('coordination') || t.includes('care')) return Icons.stethoscope();
-    if (t.includes('access') || t.includes('information')) return Icons.book();
-    if (t.includes('general')) return Icons.bulb();
-    if (t.includes('trial') || t.includes('opinion')) return Icons.beaker();
+    if (t.includes('support') || t.includes('next steps')) return Icons.hug();
+    if (t.includes('diagnosis')) return Icons.microscope();
+    if (t.includes('surgery') || t.includes('reconstruction')) return Icons.stethoscope();
+    if (t.includes('therapy') || t.includes('treatment')) return Icons.beaker();
+    if (t.includes('financial') || t.includes('insurance')) return Icons.book();
+    if (t.includes('decisions')) return Icons.hourglass();
     return Icons.bulb();
   }
 
@@ -327,12 +336,11 @@
     singleOpen = true;
   }
 
-  // ----- Selection helpers (unchanged for button enablement) -----
+  // ----- Selection helpers -----
   function getSelectedQuestions(){
     return Array.from(document.querySelectorAll('.q-list input[type="checkbox"]:checked'))
       .map(cb => cb.nextElementSibling.textContent.trim());
   }
-
   function updateActionsEnabled(){
     const count = getSelectedQuestions().length;
     const any = count > 0;
@@ -340,7 +348,7 @@
     document.getElementById('printBtn').disabled = !any;
     const emailBtn = document.getElementById('emailBtn');
     if (emailBtn) emailBtn.disabled = !any;
-    const hint = document.getElementById('selHint');
+    const hint = document.getElementById('selHint'); // optional if you add it later
     if (hint) hint.textContent = any ? `${count} question${count>1?'s':''} selected.` : 'No questions selected yet.';
   }
 
@@ -355,13 +363,12 @@
       if (!grouped.has(idx)) grouped.set(idx, { title, items: [] });
       grouped.get(idx).items.push(text);
     });
-    // preserve display order by DATA index
     return Array.from(grouped.entries())
-                .sort((a,b)=>a[0]-b[0])
-                .map(([,val])=>val);
+      .sort((a,b)=>a[0]-b[0])
+      .map(([,val])=>val);
   }
 
-  // ===== Handout (MATCH HOME PAGE; now supports grouped-by-category) =====
+  // ===== Handout (MATCHES CODE 1; grouped-by-category + instructions) =====
   function handoutHTML(selectedOrGrouped){
     const instructions = `
       <div class="panel">
@@ -373,7 +380,6 @@
         </ul>
       </div>`;
 
-    // Backward-compat: if a flat array of strings was passed, wrap as a single panel
     let questionsHTML = '';
     if (Array.isArray(selectedOrGrouped) && selectedOrGrouped.length && typeof selectedOrGrouped[0] === 'string') {
       questionsHTML = `<div class="panel"><ul>${selectedOrGrouped.map(q=>`<li>${q}</li>`).join('')}</ul></div>`;
@@ -384,7 +390,7 @@
         : `<div class="panel"><p>(Chosen questions appear here.)</p></div>`;
     }
 
-    const recs = RECOMMENDATIONS.map(r => `<li>${r}</li>`).join('');
+    const recs  = RECOMMENDATIONS.map(r => `<li>${r}</li>`).join('');
 
     return `
       <div class="handout">
@@ -395,22 +401,25 @@
           ${questionsHTML}
           <div style="height:18px"></div>
           <span class="chip">Recommendations that other patients found helpful</span>
-          <div class="panel"><ul>${recs}</ul></div>
+          <div class="panel">
+            <ul>${recs}</ul>
+          </div>
         </div>
-      </div>`;
+      </div>
+    `;
   }
 
-  // Build hidden DOM for rendering/printing (now uses grouped categories)
+  // Build a hidden DOM node with the handout (for html2canvas / print)
   function buildHandoutStage(){
-    const stage = document.getElementById('printStage');
     const grouped = getSelectedByCategory();
+    const stage = document.getElementById('printStage');
     stage.innerHTML = handoutHTML(grouped);
-    return stage.firstElementChild; // .handout
+    return stage.firstElementChild; // return the .handout root
   }
 
-  // ===== PDF (block-by-block pagination; EXACT AS HOME PAGE) =====
+  // ===== PDF (block-by-block pagination; IDENTICAL TO CODE 1) =====
   async function createHandoutPDF(){
-    const any = getSelectedQuestions().length > 0; // keep button-state logic unchanged
+    const any = getSelectedQuestions().length > 0;
     if(!any) return null;
 
     const root = buildHandoutStage();           // .handout
@@ -476,21 +485,20 @@
     return pdf;
   }
 
-  // ----- Download as PDF -----
+  // ----- Download as PDF (uses block pagination) -----
   async function downloadSelectedAsPDF(){
     const pdf = await createHandoutPDF();
     if (!pdf) return;
     pdf.save('questions-handout.pdf');
   }
 
-  // ----- Print (same outline; now grouped by category) -----
+  // ----- Print (same outline; grouped by category) -----
   function printSelected(){
-    const selectedCount = getSelectedQuestions().length;
-    if(!selectedCount) return;
+    if(!getSelectedQuestions().length) return;
     const grouped = getSelectedByCategory();
     const html = `
       <!doctype html><html><head><meta charset="utf-8">
-      <title>Questions Handout</title>
+      <title>Questions to Ask - Diagnosis</title>
       <style>${document.querySelector('style').innerHTML}</style>
       </head><body onload="window.print()">
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
@@ -499,7 +507,7 @@
     w.document.open(); w.document.write(html); w.document.close();
   }
 
-  // ----- Email (unchanged behavior; uses PDF builder) -----
+  // ----- Email (attach PDF if Web Share API is supported; otherwise fallback) -----
   async function emailSelectedPDF(){
     const pdf = await createHandoutPDF();
     if (!pdf) return;
@@ -507,14 +515,21 @@
     const blob = pdf.output('blob');
     const file = new File([blob], 'questions-handout.pdf', {type:'application/pdf'});
 
+    // Try Web Share with file
     if (navigator.canShare && navigator.canShare({ files:[file] })){
-      await navigator.share({ files:[file], title:'Questions Handout', text:'Please see attached questions handout.' }).catch(()=>{});
+      await navigator.share({
+        files:[file],
+        title:'Questions Handout',
+        text:'Please see attached questions handout.'
+      }).catch(()=>{ /* user cancelled share */ });
       return;
     }
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = 'questions-handout.pdf'; a.click();
-    URL.revokeObjectURL(url);
 
+    // Fallback: download then open mailto
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'questions-handout.pdf'; a.click();
+    URL.revokeObjectURL(url);
     const body = encodeURIComponent(
       'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded it—please see the downloaded file.'
     );
@@ -526,6 +541,18 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
 
+<style id="journey-nav-css">
+  .journey-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 8px;background:#f0f7ff;border-bottom:1.5px solid #b5d4f4;font-size:13px;}
+  .journey-step{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;text-decoration:none;font-weight:600;border:1.5px solid transparent;white-space:nowrap;}
+  .journey-step-done{background:#EAF3DE;color:#27500A;border-color:#C0DD97;}
+  .journey-step-active{background:#185FA5;color:#fff;border-color:#185FA5;}
+  .journey-step-todo{background:#fff;color:#888780;border-color:#D3D1C7;}
+  .journey-step-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .journey-step-done .journey-step-dot{background:#3B6D11;}
+  .journey-step-active .journey-step-dot{background:#fff;}
+  .journey-step-todo .journey-step-dot{background:#B4B2A9;}
+  .journey-home{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:20px;background:#fff;border:1.5px solid #D3D1C7;color:#5F5E5A;text-decoration:none;font-size:13px;font-weight:600;margin-right:4px;}
+</style>
 <style id="font-toggle-css">
   .font-toggle-wrap{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1.5px solid #b5d4f4;border-radius:8px;padding:3px 7px;}
   .font-toggle-label{font-size:11px;color:#888780;margin-right:2px;}
@@ -567,108 +594,74 @@
 
 <script id="font-toggle-js">
 (function(){
-  var LARGE_KEY='bc_font_large';
-  function applyFont(large){
+  var K='bc_font_large';
+  function apply(large){
     document.body.classList.toggle('font-large',large);
     document.querySelectorAll('.ft-btn').forEach(function(b){b.classList.toggle('active',large?b.dataset.size==='large':b.dataset.size==='normal');});
-    try{localStorage.setItem(LARGE_KEY,large?'1':'0');}catch(e){}
+    try{localStorage.setItem(K,large?'1':'0');}catch(e){}
   }
-  var saved; try{saved=localStorage.getItem(LARGE_KEY);}catch(e){}
+  var s; try{s=localStorage.getItem(K);}catch(e){}
   window.addEventListener('DOMContentLoaded',function(){
-    applyFont(saved==='1');
-    document.querySelectorAll('.ft-btn').forEach(function(b){b.addEventListener('click',function(){applyFont(b.dataset.size==='large');});});
+    apply(s==='1');
+    document.querySelectorAll('.ft-btn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.size==='large');});});
   });
 })();
 </script>
-
 <script id="sticky-js">
 (function(){
-  function updateSticky(){
-    var checked=document.querySelectorAll('.q-list input[type="checkbox"]:checked').length;
+  function upd(){
+    var n=document.querySelectorAll('.q-list input[type="checkbox"]:checked').length;
     var c=document.getElementById('stickyCount');
     var d=document.getElementById('stickyDownload');
     var p=document.getElementById('stickyPrint');
-    if(c)c.textContent=checked>0?checked+' question'+(checked>1?'s':'')+' selected':'No questions selected yet';
-    if(d)d.disabled=checked===0;
-    if(p)p.disabled=checked===0;
+    if(c)c.textContent=n>0?n+' question'+(n>1?'s':'')+' selected':'No questions selected yet';
+    if(d)d.disabled=n===0;if(p)p.disabled=n===0;
   }
-  document.addEventListener('change',function(e){if(e.target&&e.target.type==='checkbox')updateSticky();});
-  updateSticky();
+  document.addEventListener('change',function(e){if(e.target&&e.target.type==='checkbox')upd();});
+  upd();
 })();
 </script>
-
 <script id="acc-counter-js">
 (function(){
   var btns=document.querySelectorAll('.acc-header');
   var total=btns.length;
   btns.forEach(function(btn,idx){
-    var counter=document.createElement('span');
-    counter.className='acc-counter';
-    counter.textContent=(idx+1)+' of '+total;
-    btn.appendChild(counter);
+    var c=document.createElement('span');c.className='acc-counter';c.textContent=(idx+1)+' of '+total;btn.appendChild(c);
   });
-  function addHint(){
-    var existing=document.querySelector('.acc-hint');
-    if(existing)existing.remove();
-    var panels=document.querySelectorAll('.acc-panel');
-    var openPanel=null;
-    panels.forEach(function(p){if(!p.hidden)openPanel=p;});
-    if(!openPanel)return;
-    var remaining=0,found=false;
-    document.querySelectorAll('.acc-header').forEach(function(btn){
-      var id=btn.getAttribute('aria-controls');
-      var panel=id?document.getElementById(id):null;
-      if(panel&&panel===openPanel)found=true;
-      else if(found&&panel&&panel.hidden)remaining++;
+  function hint(){
+    var ex=document.querySelector('.acc-hint');if(ex)ex.remove();
+    var open=null;document.querySelectorAll('.acc-panel').forEach(function(p){if(!p.hidden)open=p;});
+    if(!open)return;
+    var rem=0,found=false;
+    document.querySelectorAll('.acc-header').forEach(function(b){
+      var id=b.getAttribute('aria-controls');var p=id?document.getElementById(id):null;
+      if(p&&p===open)found=true;else if(found&&p&&p.hidden)rem++;
     });
-    if(remaining>0){
-      var hint=document.createElement('span');
-      hint.className='acc-hint';
-      hint.textContent=remaining+' more section'+(remaining>1?'s':'')+' below \u2193';
-      openPanel.appendChild(hint);
-    }
+    if(rem>0){var h=document.createElement('span');h.className='acc-hint';h.textContent=rem+' more section'+(rem>1?'s':'')+' below ↓';open.appendChild(h);}
   }
-  document.addEventListener('click',function(e){if(e.target&&(e.target.classList.contains('acc-header')||e.target.closest('.acc-header')))setTimeout(addHint,50);});
-  setTimeout(addHint,200);
+  document.addEventListener('click',function(e){if(e.target&&(e.target.classList.contains('acc-header')||e.target.closest('.acc-header')))setTimeout(hint,50);});
+  setTimeout(hint,200);
+})();
+</script>
+<script id="eres-banner-js">
+(function(){
+  var H="../choosingtreatment/choosingtreatmentinfo.html";
+  function inject(){
+    document.querySelectorAll('.acc-panel').forEach(function(panel){
+      if(panel.querySelector('.eres-banner'))return;
+      var a=document.createElement('a');a.className='eres-banner';a.href=H;a.target='_blank';a.rel='noopener';
+      a.setAttribute('aria-label','Read trusted websites on this topic');
+      a.innerHTML='<span class="eres-banner-icon" aria-hidden="true">📚</span>'
+        +'<span style="flex:1"><span class="eres-banner-title">Read trusted websites on this topic</span>'
+        +'<br><span class="eres-banner-sub">Safe, reviewed health information — opens in a new tab</span></span>'
+        +'<span class="eres-banner-arrow" aria-hidden="true">›</span>';
+      panel.appendChild(a);
+    });
+  }
+  window.addEventListener('DOMContentLoaded',function(){setTimeout(inject,150);});
+  document.addEventListener('click',function(e){if(e.target&&(e.target.classList.contains('acc-header')||e.target.closest('.acc-header')))setTimeout(inject,60);});
 })();
 </script>
 
-<script id="eres-banner-js">
-(function(){
-  var ER_HREF='../diagnosis/diagnosisinfo.html';
-  function injectEresBanners(){
-    document.querySelectorAll('.acc-panel').forEach(function(panel){
-      if(panel.querySelector('.eres-banner'))return;
-      var banner=document.createElement('a');
-      banner.className='eres-banner';
-      banner.href=ER_HREF;
-      banner.target='_blank';
-      banner.rel='noopener';
-      banner.setAttribute('aria-label','Read trusted websites on this topic');
-      banner.innerHTML='<span class="eres-banner-icon" aria-hidden="true">\u{1F4DA}</span>'
-        +'<span class="eres-banner-text">'
-        +'<span class="eres-banner-title">Read trusted websites on this topic</span>'
-        +'<span class="eres-banner-sub">Safe, reviewed health information \u2014 opens in a new tab</span>'
-        +'</span>'
-        +'<span class="eres-banner-arrow" aria-hidden="true">\u203a</span>';
-      panel.appendChild(banner);
-    });
-  }
-  window.addEventListener('DOMContentLoaded',function(){setTimeout(injectEresBanners,150);});
-  document.addEventListener('click',function(e){if(e.target&&(e.target.classList.contains('acc-header')||e.target.closest('.acc-header')))setTimeout(injectEresBanners,60);});
-})();
-</script>
-<style id="journey-nav-css">
-  .journey-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 8px;background:#f0f7ff;border-bottom:1.5px solid #b5d4f4;font-size:13px;}
-  .journey-step{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;text-decoration:none;font-weight:600;border:1.5px solid transparent;white-space:nowrap;}
-  .journey-step-done{background:#EAF3DE;color:#27500A;border-color:#C0DD97;}
-  .journey-step-active{background:#185FA5;color:#fff;border-color:#185FA5;}
-  .journey-step-todo{background:#fff;color:#888780;border-color:#D3D1C7;}
-  .journey-step-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-  .journey-step-done .journey-step-dot{background:#3B6D11;}
-  .journey-step-active .journey-step-dot{background:#fff;}
-  .journey-step-todo .journey-step-dot{background:#B4B2A9;}
-  .journey-home{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:20px;background:#fff;border:1.5px solid #D3D1C7;color:#5F5E5A;text-decoration:none;font-size:13px;font-weight:600;margin-right:4px;}
-</style>
 </body>
 </html>
