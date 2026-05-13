@@ -174,6 +174,62 @@ img{max-width:100%!important;height:auto!important}
   color: #fff;
 }
 </style>
+<style id="bc-start-explore">
+
+/* Highlighted "Open Start here" button */
+.btn-start-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #e8a020;
+  color: #fff !important;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(232,160,32,0.35);
+  letter-spacing: 0.01em;
+}
+.btn-start-highlight:hover {
+  background: #cf8c18;
+  color: #fff !important;
+}
+
+/* "More questions to explore" section — spaced out and clean */
+.links-pack {
+  border-top: 1px solid #dce8f0;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.links-pack h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a6070;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 14px;
+}
+.links-pack a.secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  margin: 0 8px 8px 0;
+  background: #fff;
+  color: #1a5276;
+  border: 1.5px solid #2980b9;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.links-pack a.secondary:hover {
+  background: #2980b9;
+  color: #fff;
+}
+</style>
 </head>
 
   <body>
@@ -208,9 +264,9 @@ img{max-width:100%!important;height:auto!important}
             <p><strong>You're in control.</strong> Explore the section that feels right for you, or select “Start Here” to see a shorter list of questions.</p>
 
             <div class="intro-actions" role="group" aria-label="Instructions actions">
-              <button class="btn btn-primary" type="button" data-intro-close>Explore here</button>
+              
               <!-- THIS launches the Start Here modal -->
-              <a class="btn btn-secondary" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">Open “Start here”</a>
+              <a class="btn btn-start-highlight" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">Open “Start here”</a>
             </div>
           </div>
 
