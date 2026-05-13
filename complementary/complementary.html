@@ -12,7 +12,7 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Questions about integrative therapy | Breast Cancer Guide</title>
+<title>Questions to Ask about Integrative Therapy</title>
 <style>
   :root{
     --bg:#ffffff; --ink:#111827; --line:#d1d5db;
@@ -152,31 +152,8 @@
     .side .cta{width:100%;min-width:unset}
   }
 </style>
-<style id="bc-improvements">
-body{font-size:17px!important}
-p,li,label,.hint,.lede-panel{font-size:17px!important;line-height:1.75!important}
-.home-link{display:flex!important;align-items:center!important;gap:6px!important;padding:6px 12px!important;border-radius:8px!important;background:#fff!important;border:1.5px solid #c8d8e8!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;font-size:13px!important;font-weight:600!important;color:#1a5276!important;text-decoration:none!important;white-space:nowrap!important}
-.home-link::after{content:" Home"!important}
-.home-link svg{width:16px!important;height:16px!important;flex-shrink:0!important;fill:#1a5276!important}
-.acc-header{cursor:pointer!important;width:100%!important;text-align:left!important;font-size:17px!important}
-.acc-header:hover{background:#d6e4f0!important}
-.acc-header[aria-expanded="true"]{background:#e8f4fd!important;border-left:4px solid #2980b9!important}
-body{overflow-x:hidden!important}
-img{max-width:100%!important;height:auto!important}
-.bc-intro-banner{background:#eaf4fb;border-left:4px solid #2980b9;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px;font-size:16px!important;color:#1a3a4a;line-height:1.65}
-.bc-section-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding:16px 0;border-top:1px solid #e0e0e0;gap:12px;flex-wrap:wrap}
-.bc-section-nav a{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#1a5276;color:#fff;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600}
-.bc-section-nav a:hover{background:#154360}
-.bc-next{margin-left:auto}
-.bc-qlist{list-style:none;padding:0;margin:8px 0 0}
-.bc-qlist li{font-size:13px;padding:5px 0 5px 20px;border-bottom:1px solid #eee;position:relative;color:#333}
-.bc-qlist li::before{content:"✓";position:absolute;left:3px;color:#2980b9;font-weight:700}
-.bc-qlist-title{font-size:13px;font-weight:600;color:#1a5276;margin:10px 0 4px}
-.bc-simple-instr{background:#f0f7ff;border-radius:8px;padding:10px 14px;font-size:15px!important;color:#1a3a4a;margin-bottom:14px;line-height:1.6}
-</style>
 </head>
 <body>
-<div id="bc-site-header" style="background:#1a5276;color:#fff;padding:8px 20px;display:flex;align-items:center;justify-content:space-between;font-family:inherit;font-size:14px;line-height:1.4"><span style="font-weight:600;letter-spacing:0.01em">Breast Cancer Guide</span><span style="opacity:0.75;font-size:12px">Questions for your care team</span></div>
    <!-- ==== HOME BUTTON – element ==== -->
   <a class="home-link" href="https://ilonafridman.github.io/BreastCancer_2.0/home.html" aria-label="Go to Home">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
@@ -192,13 +169,12 @@ img{max-width:100%!important;height:auto!important}
       
       <h1 class="slide-title">Explore Integrative Therapy</h1>
       <h2 class="slide-title">Here you will find questions to ask your doctors and online resources to learn some basic information.</h2>
-       <div class="bc-simple-instr">Open a section below, tick the questions you want to ask your doctor, then <strong>print or save your list</strong> to bring to your appointment.</div>
-      <ul>
+       <ul>
     <li><strong>Step 1:</strong> Select one or more sections to see the questions.</li>
     <li><strong>Step 2: Select 3-5 questions</strong> you want to include in your handout.</li>
     <li><strong>Step 3: </strong> Download or print the handout to bring to your care team.</li>
-    <li><strong>Step 4:</strong> Select <strong>'Online Resources'</strong> to find more information.</li>
-     <li><strong>Step 5:</strong> Select 'Find integrative care providers' to explore options available to you.</li>
+    <li><strong>Step 4:</strong> Select <strong>‘Online Resources'</strong> to find more information.</li>
+     <li><strong>Step 5:</strong> Select ‘Find integrative care providers’ to explore options available to you.</li>
   </ul>
       <div class="toolbar" role="group" aria-label="Expand or collapse all">
         <button id="expandAllBtn"  class="tool-btn" type="button">Expand all</button>
@@ -231,10 +207,6 @@ img{max-width:100%!important;height:auto!important}
     <p class="hint">Tip: Check any number of questions you’d like to include in the handout</p>
     </aside>
   </section>
-<nav class="bc-section-nav" aria-label="Section navigation">
-      <a href="../aftertreatment/aftertreatment.html">← After treatment</a>
-      <span></span>
-    </nav>
 </main>
 
 <!-- hidden render stage for PDF/print/email -->
@@ -532,9 +504,7 @@ img{max-width:100%!important;height:auto!important}
       <style>${document.querySelector('style').innerHTML}</style>
       </head><body onload="window.print()">
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
-      
-
-</body></html>`;
+      </body></html>`;
     const w = window.open('', '_blank');
     w.document.open(); w.document.write(html); w.document.close();
   }
@@ -568,59 +538,6 @@ img{max-width:100%!important;height:auto!important}
 </script>
 
 <!-- Deps for client-side PDF -->
-<script id="bc-qfix">
-document.addEventListener('DOMContentLoaded', function() {
-  function updateList() {
-    var checked = document.querySelectorAll('.acc-panel input[type="checkbox"]:checked');
-    // Update count
-    document.querySelectorAll('p,span,div').forEach(function(el) {
-      if (el.childElementCount === 0 && /^\d+ question/.test(el.textContent.trim())) {
-        el.textContent = checked.length + (checked.length === 1 ? ' question selected.' : ' questions selected.');
-      }
-    });
-    // Update live list
-    var ex = document.getElementById('bc-lq');
-    if (ex) ex.remove();
-    var hint = document.getElementById('selHint');
-    if (hint && checked.length > 0) {
-      var wrap = document.createElement('div');
-      wrap.id = 'bc-lq';
-      var title = document.createElement('div');
-      title.className = 'bc-qlist-title';
-      title.textContent = 'Your selected questions:';
-      wrap.appendChild(title);
-      var ul = document.createElement('ul');
-      ul.className = 'bc-qlist';
-      checked.forEach(function(cb) {
-        var label = cb.closest('label') || cb.parentElement;
-        var text = label ? label.textContent.trim() : '';
-        if (text) {
-          var li = document.createElement('li');
-          li.textContent = text.substring(0, 90) + (text.length > 90 ? '...' : '');
-          ul.appendChild(li);
-        }
-      });
-      wrap.appendChild(ul);
-      hint.parentNode.insertBefore(wrap, hint.nextSibling);
-    }
-    // Button states
-    document.querySelectorAll('button').forEach(function(btn) {
-      var t = btn.textContent.trim().toLowerCase();
-      if (t === 'download pdf' || t === 'print') {
-        btn.style.opacity = checked.length > 0 ? '1' : '0.4';
-        btn.style.cursor = checked.length > 0 ? 'pointer' : 'not-allowed';
-      }
-    });
-  }
-  document.addEventListener('change', function(e) {
-    if (e.target && e.target.type === 'checkbox') updateList();
-  });
-  // Pre-open first accordion
-  var firstBtn = document.querySelector('.acc-header');
-  if (firstBtn && firstBtn.getAttribute('aria-expanded') === 'false') firstBtn.click();
-  updateList();
-});
-</script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
 </body>
