@@ -13,7 +13,7 @@
 </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Breast Cancer Guide — Questions for your care team | Breast Cancer Guide</title>
+    <title>Breast Cancer Guide — Questions for your care team</title>
 
     <style>
       :root {
@@ -128,7 +128,7 @@
     </style>
   <style id="bc-improvements">
 body{font-size:17px!important}
-p,li,label,.hint,.lede-panel{font-size:17px!important;line-height:1.75!important}
+p,li,label,.hint,.lede-panel,.card-desc{font-size:16px!important;line-height:1.75!important}
 .home-link{display:flex!important;align-items:center!important;gap:6px!important;padding:6px 12px!important;border-radius:8px!important;background:#fff!important;border:1.5px solid #c8d8e8!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;font-size:13px!important;font-weight:600!important;color:#1a5276!important;text-decoration:none!important;white-space:nowrap!important}
 .home-link::after{content:" Home"!important}
 .home-link svg{width:16px!important;height:16px!important;flex-shrink:0!important;fill:#1a5276!important}
@@ -137,7 +137,8 @@ p,li,label,.hint,.lede-panel{font-size:17px!important;line-height:1.75!important
 .acc-header[aria-expanded="true"]{background:#e8f4fd!important;border-left:4px solid #2980b9!important}
 body{overflow-x:hidden!important}
 img{max-width:100%!important;height:auto!important}
-.bc-intro-banner{background:#eaf4fb;border-left:4px solid #2980b9;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px;font-size:16px!important;color:#1a3a4a;line-height:1.65}
+.bc-welcome{background:#eaf4fb;border-left:4px solid #2980b9;border-radius:0 8px 8px 0;padding:14px 20px;margin:12px 20px 16px;font-size:16px!important;color:#1a3a4a;line-height:1.7}
+.bc-simple-instr{background:#f0f7ff;border-radius:8px;padding:10px 14px;font-size:15px!important;color:#1a3a4a;margin-bottom:14px;line-height:1.6}
 .bc-section-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding:16px 0;border-top:1px solid #e0e0e0;gap:12px;flex-wrap:wrap}
 .bc-section-nav a{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#1a5276;color:#fff;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600}
 .bc-section-nav a:hover{background:#154360}
@@ -146,9 +147,7 @@ img{max-width:100%!important;height:auto!important}
 .bc-qlist li{font-size:13px;padding:5px 0 5px 20px;border-bottom:1px solid #eee;position:relative;color:#333}
 .bc-qlist li::before{content:"✓";position:absolute;left:3px;color:#2980b9;font-weight:700}
 .bc-qlist-title{font-size:13px;font-weight:600;color:#1a5276;margin:10px 0 4px}
-.bc-simple-instr{background:#f0f7ff;border-radius:8px;padding:10px 14px;font-size:15px!important;color:#1a3a4a;margin-bottom:14px;line-height:1.6}
 </style>
-<style id="bc-steps">.card-step{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#1a5276;color:#fff;font-size:12px;font-weight:700;margin-right:8px;vertical-align:middle;flex-shrink:0}.card-label-row{display:flex;align-items:center;padding:8px 12px 10px;font-size:16px;font-weight:700;color:#1a3a4a}</style>
 </head>
 
   <body>
@@ -202,8 +201,8 @@ img{max-width:100%!important;height:auto!important}
     </div>
 
     <!-- Cards -->
-    <main class="container grid" aria-label="Topics">
-<div style="max-width:860px;margin:16px auto 4px;padding:0 20px"><div class="bc-intro-banner"><strong>We know this is a difficult time.</strong> This guide helps you prepare questions for your doctors so you feel more confident and in control at your appointments. Go at your own pace — most people start with Step 1 below.</div></div>
+    <div class="bc-welcome"><strong>We know this is a difficult time.</strong> This guide helps you prepare questions for your doctors so you feel more confident and in control at your appointments. Go at your own pace — most people start with Step 1.</div>
+<main class="container grid" aria-label="Topics">
       <div class="card">
         <a class="thumb" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/Starthere.jpg" alt="People jogging with the word Start on the track" />
