@@ -107,26 +107,11 @@
   .home-link::after{ content:none !important; display:none !important; }
 
 
-    /* Utility icon buttons — stacked vertically under Home (PDF + Email) */
-    .util-wrap{
-      position:fixed; left:14px; top:60px; z-index:50;
-      display:flex; flex-direction:column; gap:8px;
-    }
-    .util-btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:40px; height:40px; border-radius:10px;
-      background:#fff; border:1px solid var(--line);
-      box-shadow:0 6px 16px rgba(0,0,0,.12);
-      cursor:pointer;
-    }
-    .util-btn:hover{transform:translateY(-1px)}
-    .util-btn:focus-visible{outline:none;box-shadow:var(--ring)}
-    .util-btn svg{width:22px;height:22px;stroke:#000;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.6}
+    
 
     @media (max-width:760px){
       .layout{grid-template-columns:1fr;gap:28px}
       .pic-wrap{max-width:100%}
-      .util-wrap{left:14px; top:60px}
     }
   </style>
 </head>
@@ -138,24 +123,6 @@
       <path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/>
     </svg>
   </a>
-
-  <!-- Utility icon buttons — stacked under Home -->
-  <div class="util-wrap" role="group" aria-label="Page utilities">
-    <button class="util-btn" id="pdfBtn" type="button" aria-label="Download PDF">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 2h9l3 3v17H6z"></path>
-        <path d="M15 2v5h5"></path>
-        <path d="M8 13h8"></path>
-        <path d="M8 17h6"></path>
-      </svg>
-    </button>
-    <button class="util-btn" id="emailBtn" type="button" aria-label="Email this page">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 6h16v12H4z"></path>
-        <path d="m4 7 8 6 8-6"></path>
-      </svg>
-    </button>
-  </div>
 
   <main class="container">
     <section class="layout">
