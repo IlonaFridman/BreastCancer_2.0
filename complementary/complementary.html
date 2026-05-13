@@ -168,6 +168,12 @@ h1.slide-title {
   .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; color:#fff; }
   .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.85; line-height:1.2; color:#fff; }
   .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
+
+  .sec-btn{ display:inline-flex; align-items:center; padding:6px 12px; border-radius:8px; font-size:12px; font-weight:700; text-decoration:none; white-space:nowrap; transition:background .15s, transform .06s; border:1.5px solid rgba(255,255,255,0.4); color:#fff; background:rgba(255,255,255,0.12); }
+  .sec-btn:hover{ background:rgba(255,255,255,0.25); transform:translateY(-1px); }
+  .sec-btn.active{ background:#fff; color:#185FA5; border-color:#fff; }
+  .sec-btn.active:hover{ background:#e6f1fb; }
+  .site-header-steps{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
 </style>
 </head>
 <body>
@@ -177,6 +183,13 @@ h1.slide-title {
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
           Home
         </a>
+      </div>
+      <div class="site-header-steps">
+        <a class="sec-btn" href="../diagnosis/diagnosis.html">After diagnosis</a>
+        <a class="sec-btn" href="../choosingtreatment/choosingtreatment.html">Choosing treatment</a>
+        <a class="sec-btn" href="../treatment/treatment.html">During treatment</a>
+        <a class="sec-btn" href="../aftertreatment/aftertreatment.html">After treatment</a>
+        <a class="sec-btn active" href="../complementary/complementary.html">Integrative therapy</a>
       </div>
       <div class="site-header-right">
         <span class="font-toggle-wrap" aria-label="Text size">
