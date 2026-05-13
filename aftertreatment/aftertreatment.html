@@ -522,7 +522,7 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
 
-<style>
+<style id="journey-nav-css">
   .journey-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 8px;background:#f0f7ff;border-bottom:1.5px solid #b5d4f4;font-size:13px;}
   .journey-step{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;text-decoration:none;font-weight:600;border:1.5px solid transparent;white-space:nowrap;}
   .journey-step-done{background:#EAF3DE;color:#27500A;border-color:#C0DD97;}
@@ -534,48 +534,21 @@
   .journey-step-todo .journey-step-dot{background:#B4B2A9;}
   .journey-home{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:20px;background:#fff;border:1.5px solid #D3D1C7;color:#5F5E5A;text-decoration:none;font-size:13px;font-weight:600;margin-right:4px;}
 </style>
-<style>
+<style id="font-toggle-css">
+  .font-toggle-wrap{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1.5px solid #b5d4f4;border-radius:8px;padding:3px 7px;}
+  .font-toggle-label{font-size:11px;color:#888780;margin-right:2px;}
+  .ft-btn{background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px;font-family:Arial,sans-serif;font-weight:700;color:#888780;line-height:1;}
+  .ft-btn.active{background:#e6f1fb;color:#185FA5;}
+  .ft-btn:hover{background:#f0f7ff;}
+  body.font-large p,body.font-large li,body.font-large label,body.font-large .bc-simple-instr,body.font-large ul li{font-size:20px!important;line-height:1.8!important;}
+  body.font-large .acc-header,body.font-large .q-list label{font-size:19px!important;}
+</style>
+<style id="acc-counter-css">
   .acc-counter{font-size:11px;background:#185FA5;color:#fff;padding:2px 9px;border-radius:10px;margin-left:auto;white-space:nowrap;font-weight:600;}
   .acc-hint{font-size:13px;color:#185FA5;background:#e6f1fb;border-radius:6px;padding:6px 12px;text-align:center;margin:8px 0 4px;display:block;}
-  .acc-header{display:flex;align-items:center;gap:8px;}
 </style>
-<script>
-(function(){
-  var btns=document.querySelectorAll('.acc-header');
-  var total=btns.length;
-  btns.forEach(function(btn,idx){
-    var counter=document.createElement('span');
-    counter.className='acc-counter';
-    counter.textContent=(idx+1)+' of '+total;
-    btn.appendChild(counter);
-  });
-  function addHint(){
-    var existing=document.querySelector('.acc-hint');
-    if(existing) existing.remove();
-    var panels=document.querySelectorAll('.acc-panel');
-    var openPanel=null;
-    panels.forEach(function(p){if(!p.hidden)openPanel=p;});
-    if(!openPanel)return;
-    var remaining=0,found=false;
-    document.querySelectorAll('.acc-header').forEach(function(btn){
-      var id=btn.getAttribute('aria-controls');
-      var panel=id?document.getElementById(id):null;
-      if(panel&&panel===openPanel)found=true;
-      else if(found&&panel&&panel.hidden)remaining++;
-    });
-    if(remaining>0){
-      var hint=document.createElement('span');
-      hint.className='acc-hint';
-      hint.textContent=remaining+' more section'+(remaining>1?'s':'')+' below ↓';
-      openPanel.appendChild(hint);
-    }
-  }
-  document.addEventListener('click',function(e){if(e.target&&e.target.classList.contains('acc-header'))setTimeout(addHint,50);});
-  setTimeout(addHint,200);
-})();
-</script>
-<style>
-  .sticky-actions{position:sticky;bottom:0;z-index:40;background:#fff;border-top:1.5px solid #b5d4f4;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+<style id="sticky-css">
+  .sticky-actions{position:sticky;bottom:0;z-index:40;background:#fff;border-top:1.5px solid #b5d4f4;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.08);}
   .sticky-count{font-size:14px;color:#185FA5;font-weight:600;}
   .sticky-btn-row{display:flex;gap:8px;}
   .sticky-dl{background:#185FA5;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;}
@@ -583,6 +556,15 @@
   .sticky-pr{background:#f1f5f9;color:#185FA5;border:1.5px solid #b5d4f4;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;}
   .sticky-dl:disabled,.sticky-pr:disabled{opacity:0.4;cursor:not-allowed;}
 </style>
+<style id="eres-banner-css">
+  .eres-banner{display:flex;align-items:center;gap:12px;background:#185FA5;color:#fff;border-radius:10px;padding:12px 16px;margin:12px 8px 8px;cursor:pointer;text-decoration:none;transition:background .15s;}
+  .eres-banner:hover{background:#0C447C;}
+  .eres-banner-icon{font-size:26px;flex-shrink:0;}
+  .eres-banner-title{font-size:15px;font-weight:700;line-height:1.3;}
+  .eres-banner-sub{font-size:13px;opacity:0.85;margin-top:2px;line-height:1.4;}
+  .eres-banner-arrow{font-size:22px;font-weight:700;flex-shrink:0;opacity:0.85;}
+</style>
+
 <div class="sticky-actions" id="stickyBar" aria-live="polite">
   <span class="sticky-count" id="stickyCount">No questions selected yet</span>
   <div class="sticky-btn-row">
@@ -590,101 +572,77 @@
     <button class="sticky-pr" id="stickyPrint" onclick="document.getElementById('printBtn').click()" disabled>&#9113; Print</button>
   </div>
 </div>
-<script>
+
+<script id="font-toggle-js">
 (function(){
-  function updateSticky(){
-    var checked=document.querySelectorAll('.q-list input[type="checkbox"]:checked').length;
+  var K='bc_font_large';
+  function apply(large){
+    document.body.classList.toggle('font-large',large);
+    document.querySelectorAll('.ft-btn').forEach(function(b){b.classList.toggle('active',large?b.dataset.size==='large':b.dataset.size==='normal');});
+    try{localStorage.setItem(K,large?'1':'0');}catch(e){}
+  }
+  var s; try{s=localStorage.getItem(K);}catch(e){}
+  window.addEventListener('DOMContentLoaded',function(){
+    apply(s==='1');
+    document.querySelectorAll('.ft-btn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.size==='large');});});
+  });
+})();
+</script>
+<script id="sticky-js">
+(function(){
+  function upd(){
+    var n=document.querySelectorAll('.q-list input[type="checkbox"]:checked').length;
     var c=document.getElementById('stickyCount');
     var d=document.getElementById('stickyDownload');
     var p=document.getElementById('stickyPrint');
-    if(c) c.textContent=checked>0?checked+' question'+(checked>1?'s':'')+' selected':'No questions selected yet';
-    if(d) d.disabled=checked===0;
-    if(p) p.disabled=checked===0;
+    if(c)c.textContent=n>0?n+' question'+(n>1?'s':'')+' selected':'No questions selected yet';
+    if(d)d.disabled=n===0;if(p)p.disabled=n===0;
   }
-  document.addEventListener('change',function(e){if(e.target&&e.target.type==='checkbox')updateSticky();});
-  updateSticky();
+  document.addEventListener('change',function(e){if(e.target&&e.target.type==='checkbox')upd();});
+  upd();
 })();
 </script>
-
-<style id="font-toggle-css">
-  .font-toggle-wrap{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1.5px solid #b5d4f4;border-radius:8px;padding:3px 7px;margin-right:8px;}
-  .font-toggle-label{font-size:11px;color:#888780;margin-right:2px;}
-  .ft-btn{background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px;font-family:Arial,sans-serif;font-weight:700;color:#888780;line-height:1;}
-  .ft-btn.active{background:#e6f1fb;color:#185FA5;}
-  .ft-btn:hover{background:#f0f7ff;}
-  body.font-large p,body.font-large li,body.font-large label,body.font-large .lede-panel,body.font-large .card-desc,body.font-large .section-content,body.font-large h2.slide-title{font-size:20px!important;line-height:1.8!important;}
-  body.font-large h1,body.font-large h1.slide-title{font-size:2.6rem!important;}
-  body.font-large .acc-header,.font-large .acc-panel,.font-large .q-list li,.font-large .q-list label{font-size:19px!important;}
-  body.font-large .step-text,.font-large .bc-simple-instr,.font-large ul li{font-size:19px!important;line-height:1.85!important;}
-</style>
-<script id="font-toggle-js">
+<script id="acc-counter-js">
 (function(){
-  var LARGE_KEY = 'bc_font_large';
-  function applyFont(large){
-    document.body.classList.toggle('font-large', large);
-    document.querySelectorAll('.ft-btn').forEach(function(b){
-      b.classList.toggle('active', large ? b.dataset.size==='large' : b.dataset.size==='normal');
-    });
-    try{ localStorage.setItem(LARGE_KEY, large?'1':'0'); }catch(e){}
-  }
-  var saved;
-  try{ saved = localStorage.getItem(LARGE_KEY); }catch(e){}
-  var isLarge = saved === '1';
-  window.addEventListener('DOMContentLoaded', function(){
-    applyFont(isLarge);
-    document.querySelectorAll('.ft-btn').forEach(function(b){
-      b.addEventListener('click', function(){ applyFont(b.dataset.size==='large'); });
-    });
+  var btns=document.querySelectorAll('.acc-header');
+  var total=btns.length;
+  btns.forEach(function(btn,idx){
+    var c=document.createElement('span');c.className='acc-counter';c.textContent=(idx+1)+' of '+total;btn.appendChild(c);
   });
+  function hint(){
+    var ex=document.querySelector('.acc-hint');if(ex)ex.remove();
+    var open=null;document.querySelectorAll('.acc-panel').forEach(function(p){if(!p.hidden)open=p;});
+    if(!open)return;
+    var rem=0,found=false;
+    document.querySelectorAll('.acc-header').forEach(function(b){
+      var id=b.getAttribute('aria-controls');var p=id?document.getElementById(id):null;
+      if(p&&p===open)found=true;else if(found&&p&&p.hidden)rem++;
+    });
+    if(rem>0){var h=document.createElement('span');h.className='acc-hint';h.textContent=rem+' more section'+(rem>1?'s':'')+' below ↓';open.appendChild(h);}
+  }
+  document.addEventListener('click',function(e){if(e.target&&(e.target.classList.contains('acc-header')||e.target.closest('.acc-header')))setTimeout(hint,50);});
+  setTimeout(hint,200);
 })();
 </script>
-
 <script id="eres-banner-js">
 (function(){
-  var ER_HREF = "../aftertreatment/aftertreatmentinfo.html";
-  function injectEresBanners(){
+  var H="../aftertreatment/aftertreatmentinfo.html";
+  function inject(){
     document.querySelectorAll('.acc-panel').forEach(function(panel){
-      if(panel.querySelector('.eres-banner')) return;
-      var banner = document.createElement('a');
-      banner.className = 'eres-banner';
-      banner.href = ER_HREF;
-      banner.target = '_blank';
-      banner.rel = 'noopener';
-      banner.setAttribute('aria-label', 'Read trusted websites on this topic — opens in a new tab');
-      banner.innerHTML = '<span class="eres-banner-icon" aria-hidden="true">&#128218;</span>'
-        + '<span class="eres-banner-text">'
-        + '<span class="eres-banner-title">Read trusted websites on this topic</span>'
-        + '<span class="eres-banner-sub">Safe, reviewed health information — opens in a new tab</span>'
-        + '</span>'
-        + '<span class="eres-banner-arrow" aria-hidden="true">&#8250;</span>';
-      panel.appendChild(banner);
+      if(panel.querySelector('.eres-banner'))return;
+      var a=document.createElement('a');a.className='eres-banner';a.href=H;a.target='_blank';a.rel='noopener';
+      a.setAttribute('aria-label','Read trusted websites on this topic');
+      a.innerHTML='<span class="eres-banner-icon" aria-hidden="true">📚</span>'
+        +'<span style="flex:1"><span class="eres-banner-title">Read trusted websites on this topic</span>'
+        +'<br><span class="eres-banner-sub">Safe, reviewed health information — opens in a new tab</span></span>'
+        +'<span class="eres-banner-arrow" aria-hidden="true">›</span>';
+      panel.appendChild(a);
     });
   }
-  // Run after render() populates the accordion
-  window.addEventListener('DOMContentLoaded', function(){
-    setTimeout(injectEresBanners, 100);
-  });
-  // Also re-inject when panels are toggled open
-  document.addEventListener('click', function(e){
-    if(e.target && (e.target.classList.contains('acc-header') || e.target.closest('.acc-header'))){
-      setTimeout(injectEresBanners, 60);
-    }
-  });
+  window.addEventListener('DOMContentLoaded',function(){setTimeout(inject,150);});
+  document.addEventListener('click',function(e){if(e.target&&(e.target.classList.contains('acc-header')||e.target.closest('.acc-header')))setTimeout(inject,60);});
 })();
 </script>
-<style id="eres-banner-css">
-  .eres-banner{
-    display:flex; align-items:center; gap:12px;
-    background:#185FA5; color:#fff;
-    border-radius:10px; padding:12px 16px;
-    margin:12px 8px 8px; cursor:pointer;
-    text-decoration:none; transition:background .15s;
-  }
-  .eres-banner:hover{ background:#0C447C; }
-  .eres-banner-icon{ font-size:26px; flex-shrink:0; }
-  .eres-banner-text{ flex:1; }
-  .eres-banner-title{ font-size:15px; font-weight:700; line-height:1.3; }
-  .eres-banner-sub{ font-size:13px; opacity:0.85; margin-top:2px; line-height:1.4; }
-  .eres-banner-arrow{ font-size:22px; font-weight:700; flex-shrink:0; opacity:0.85; }
-</style></body>
+
+</body>
 </html>
