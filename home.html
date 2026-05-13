@@ -36,10 +36,7 @@
 
       /* Top buttons share identical styles */
       .top-button{
-        appearance:none;
-        font-family:inherit;
-        cursor:pointer;
-
+        appearance:none; font-family:inherit; cursor:pointer;
         display:inline-flex; align-items:center; justify-content:center;
         background:linear-gradient(180deg,#6ea2cf,#588fbe); color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.2);
         border:3px solid #fff; outline:1px solid #c7d9ea; text-decoration:none; padding:14px 22px; border-radius:14px; font-weight:700;
@@ -47,6 +44,17 @@
       }
       .top-button:hover{ filter:brightness(1.05); transform:translateY(-1px) }
       .top-button:focus-visible{ outline:3px solid var(--ring); outline-offset:3px }
+      .nav-card-btn{
+        background:#fff!important; color:#0C447C!important; text-shadow:none!important;
+        border:1.5px solid #b5d4f4!important; outline:none!important;
+        padding:8px 14px!important; border-radius:10px!important; gap:8px!important;
+        align-items:flex-start!important; text-align:left!important;
+      }
+      .nav-card-btn:hover{ background:#e6f1fb!important; transform:translateY(-1px) }
+      .nav-btn-text{ display:flex; flex-direction:column; gap:1px; }
+      .nav-btn-main{ font-size:13px; font-weight:700; line-height:1.2; }
+      .nav-btn-sub{ font-size:11px; font-weight:400; opacity:0.75; line-height:1.2; }
+      .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
 
       /* Cards */
       .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
@@ -138,10 +146,22 @@
 
   <body>
     <header class="container header">
-      <a class="top-button" href="./careteam.html">Your Care Team</a>
-      <a class="top-button" href="./information.html">Helpful Information Online</a>
-      <button id="backToInstructionsTop" class="top-button" type="button" aria-haspopup="dialog" aria-controls="introModal">
-        Back to instructions
+      <span class="font-toggle-wrap" aria-label="Text size">
+        <span class="font-toggle-label">Text</span>
+        <button class="ft-btn active" data-size="normal" aria-label="Normal text size" title="Normal size">A</button>
+        <button class="ft-btn" data-size="large" aria-label="Large text size" title="Large size" style="font-size:17px;">A+</button>
+      </span>
+      <a class="top-button nav-card-btn" href="./careteam.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"/><path d="M3 21c0-4 4-7 9-7s9 3 9 7"/></svg>
+        <span class="nav-btn-text"><span class="nav-btn-main">Meet your care team</span><span class="nav-btn-sub">Who does what in your care</span></span>
+      </a>
+      <a class="top-button nav-card-btn" href="./information.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="nav-btn-text"><span class="nav-btn-main">Trusted websites</span><span class="nav-btn-sub">Safe places to learn more</span></span>
+      </a>
+      <button id="backToInstructionsTop" class="top-button nav-card-btn" type="button" aria-haspopup="dialog" aria-controls="introModal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="nav-btn-text"><span class="nav-btn-main">How to use this guide</span><span class="nav-btn-sub">Instructions and tips</span></span>
       </button>
     </header>
 
@@ -738,5 +758,38 @@
 
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
-  </body>
+  
+<style id="font-toggle-css">
+  .font-toggle-wrap{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1.5px solid #b5d4f4;border-radius:8px;padding:3px 7px;margin-right:8px;}
+  .font-toggle-label{font-size:11px;color:#888780;margin-right:2px;}
+  .ft-btn{background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:5px;font-family:Arial,sans-serif;font-weight:700;color:#888780;line-height:1;}
+  .ft-btn.active{background:#e6f1fb;color:#185FA5;}
+  .ft-btn:hover{background:#f0f7ff;}
+  body.font-large p,body.font-large li,body.font-large label,body.font-large .lede-panel,body.font-large .card-desc,body.font-large .section-content,body.font-large h2.slide-title{font-size:20px!important;line-height:1.8!important;}
+  body.font-large h1,body.font-large h1.slide-title{font-size:2.6rem!important;}
+  body.font-large .acc-header,.font-large .acc-panel,.font-large .q-list li,.font-large .q-list label{font-size:19px!important;}
+  body.font-large .step-text,.font-large .bc-simple-instr,.font-large ul li{font-size:19px!important;line-height:1.85!important;}
+</style>
+<script id="font-toggle-js">
+(function(){
+  var LARGE_KEY = 'bc_font_large';
+  function applyFont(large){
+    document.body.classList.toggle('font-large', large);
+    document.querySelectorAll('.ft-btn').forEach(function(b){
+      b.classList.toggle('active', large ? b.dataset.size==='large' : b.dataset.size==='normal');
+    });
+    try{ localStorage.setItem(LARGE_KEY, large?'1':'0'); }catch(e){}
+  }
+  var saved;
+  try{ saved = localStorage.getItem(LARGE_KEY); }catch(e){}
+  var isLarge = saved === '1';
+  window.addEventListener('DOMContentLoaded', function(){
+    applyFont(isLarge);
+    document.querySelectorAll('.ft-btn').forEach(function(b){
+      b.addEventListener('click', function(){ applyFont(b.dataset.size==='large'); });
+    });
+  });
+})();
+</script>
+</body>
 </html>
