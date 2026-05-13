@@ -83,8 +83,8 @@
 
   .acc-panel{margin:8px 0 12px 24px}
   .q-list{list-style:none;margin:8px 0 0 0;padding:0;font-size:20px;line-height:1.7}
-  .q-list li{margin:10px 0;display:flex;align-items:flex-start;gap:10px}
-  .q-list input{margin-top:6px;transform:scale(1.15)}
+  .q-list li{ display:flex; gap:12px; padding:12px 8px; border-bottom:1px solid #eaeef5; line-height:1.45; align-items:flex-start; min-height:44px; }
+  .q-list input[type="checkbox"]{ width:28px; height:28px; min-width:28px; margin-top:2px; cursor:pointer; accent-color:#185FA5; border-radius:6px; }
   .acc-panel[hidden]{display:none}
 
   /* RIGHT (actions) */
@@ -130,9 +130,43 @@
     .layout{grid-template-columns:1fr;gap:28px}
     .side .cta{width:100%;min-width:unset}
   }
+
+  .sticky-actions{position:sticky;bottom:0;z-index:40;background:#fff;border-top:1.5px solid #b5d4f4;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.08);}
+  .sticky-count{font-size:14px;color:#185FA5;font-weight:600;}
+  .sticky-btn-row{display:flex;gap:8px;}
+  .sticky-dl{background:#185FA5;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;}
+  .sticky-dl:hover{background:#0C447C;}
+  .sticky-pr{background:#f1f5f9;color:#185FA5;border:1.5px solid #b5d4f4;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;}
+  .sticky-pr:hover{background:#e6f1fb;}
+  .sticky-dl:disabled,.sticky-pr:disabled{opacity:0.4;cursor:not-allowed;}
+
+  .acc-counter{font-size:11px;background:#185FA5;color:#fff;padding:2px 9px;border-radius:10px;margin-left:auto;white-space:nowrap;font-weight:600;}
+  .acc-hint{font-size:13px;color:#185FA5;background:#e6f1fb;border-radius:6px;padding:6px 12px;text-align:center;margin:8px 0 4px;display:block;}
+  .acc-header{display:flex;align-items:center;gap:8px;}
+
+  .journey-nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px 8px;background:#f0f7ff;border-bottom:1.5px solid #b5d4f4;font-size:13px;}
+  .journey-step{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;text-decoration:none;font-weight:600;border:1.5px solid transparent;white-space:nowrap;}
+  .journey-step-done{background:#EAF3DE;color:#27500A;border-color:#C0DD97;}
+  .journey-step-active{background:#185FA5;color:#fff;border-color:#185FA5;}
+  .journey-step-todo{background:#fff;color:#888780;border-color:#D3D1C7;}
+  .journey-step-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .journey-step-done .journey-step-dot{background:#3B6D11;}
+  .journey-step-active .journey-step-dot{background:#fff;}
+  .journey-step-todo .journey-step-dot{background:#B4B2A9;}
+  .journey-home{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:20px;background:#fff;border:1.5px solid #D3D1C7;color:#5F5E5A;text-decoration:none;font-size:13px;font-weight:600;margin-right:4px;}
+  .journey-home:hover{background:#f1f5f9;}
 </style>
 </head>
 <body>
+<nav class="journey-nav" aria-label="Your care journey">
+    <a class="journey-home" href="../home.html">&#8962; Home</a>
+    <a class="journey-step journey-step-active" href="../diagnosis/diagnosis.html"><span class="journey-step-dot"></span>After diagnosis</a>
+    <a class="journey-step journey-step-todo" href="../choosingtreatment/choosingtreatment.html"><span class="journey-step-dot"></span>Choosing treatment</a>
+    <a class="journey-step journey-step-todo" href="../treatment/treatment.html"><span class="journey-step-dot"></span>During treatment</a>
+    <a class="journey-step journey-step-todo" href="../aftertreatment/aftertreatment.html"><span class="journey-step-dot"></span>After treatment</a>
+    <a class="journey-step journey-step-todo" href="../complementary/complementary.html"><span class="journey-step-dot"></span>Integrative therapy</a>
+</nav>
+
   <!-- ==== HOME BUTTON – element ==== -->
   <a class="home-link" href="https://ilonafridman.github.io/BreastCancer_2.0/home.html" aria-label="Go to Home">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
@@ -480,7 +514,50 @@
       <style>${document.querySelector('style').innerHTML}</style>
       </head><body onload="window.print()">
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
-      </body></html>`;
+      
+<script>
+(function(){
+  var btns = document.querySelectorAll('.acc-header');
+  var total = btns.length;
+  btns.forEach(function(btn, idx){
+    var counter = document.createElement('span');
+    counter.className = 'acc-counter';
+    counter.setAttribute('aria-label', (idx+1) + ' of ' + total + ' sections');
+    counter.textContent = (idx+1) + ' of ' + total;
+    btn.appendChild(counter);
+  });
+  // Add hint below first open panel
+  function addHint(){
+    var existing = document.querySelector('.acc-hint');
+    if(existing) existing.remove();
+    var panels = document.querySelectorAll('.acc-panel');
+    var openPanel = null;
+    panels.forEach(function(p){ if(!p.hidden) openPanel = p; });
+    if(!openPanel) return;
+    var remaining = 0;
+    var found = false;
+    document.querySelectorAll('.acc-header').forEach(function(btn){
+      var id = btn.getAttribute('aria-controls');
+      var panel = id ? document.getElementById(id) : null;
+      if(panel && panel === openPanel) found = true;
+      else if(found && panel && panel.hidden) remaining++;
+    });
+    if(remaining > 0){
+      var hint = document.createElement('span');
+      hint.className = 'acc-hint';
+      hint.textContent = remaining + ' more section' + (remaining>1?'s':'') + ' below ↓';
+      openPanel.appendChild(hint);
+    }
+  }
+  document.addEventListener('click', function(e){
+    if(e.target && e.target.classList.contains('acc-header')){
+      setTimeout(addHint, 50);
+    }
+  });
+  setTimeout(addHint, 200);
+})();
+</script>
+</body></html>`;
     const w = window.open('', '_blank');
     w.document.open(); w.document.write(html); w.document.close();
   }

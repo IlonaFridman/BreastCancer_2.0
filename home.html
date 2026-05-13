@@ -56,6 +56,8 @@
       .card-title a{ display:inline-block; text-decoration:none; color:inherit; font-weight:800 }
       .card-title{ font-size:20px; font-weight:800; line-height:1.2 }
       .card-desc{ font-size:15px; color:var(--muted); margin-top:6px; line-height:1.35 }
+      .card-btn{ display:inline-flex; align-items:center; gap:6px; margin-top:10px; background:#185FA5; color:#fff; font-size:14px; font-weight:700; padding:9px 16px; border-radius:10px; text-decoration:none; }
+      .card-btn:hover{ background:#0C447C; }
       @media (max-width:900px){ .grid{ grid-template-columns:1fr 1fr } }
       @media (max-width:640px){ .grid{ grid-template-columns:1fr } .header{ justify-content:center } }
 
@@ -107,7 +109,9 @@
       .eres-btn{ margin-left:auto; border:1px solid #94a3b8; background:#fff; border-radius:12px; padding:8px 14px; font-weight:800; text-decoration:none; color:#0b2a5d; display:inline-flex; align-items:center; line-height:1 }
       .eres-btn:hover{ background:#f1f5f9 }
       .q-list{ list-style:none; padding:0; margin:0 }
-      .q-list li{ display:flex; gap:10px; padding:10px 8px; border-bottom:1px solid #eaeef5; line-height:1.35 }
+      .q-list li{ display:flex; gap:12px; padding:12px 8px; border-bottom:1px solid #eaeef5; line-height:1.45; align-items:flex-start; min-height:44px; }
+      .q-list input[type="checkbox"]{ width:28px; height:28px; min-width:28px; margin-top:2px; cursor:pointer; accent-color:#185FA5; }
+      .q-list label{ font-size:17px; cursor:pointer; line-height:1.5; }
       .q-list li:last-child{ border-bottom:none }
 
       .modal-footer{ display:flex; gap:12px; justify-content:space-between; align-items:center; margin-top:12px; flex-wrap:wrap; padding-bottom:8px }
@@ -160,7 +164,8 @@
 
             <div class="intro-actions" role="group" aria-label="Instructions actions">
               <!-- THIS launches the Start Here modal -->
-              <a class="btn btn-secondary" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">Open “Start here”</a>
+              <a class="btn btn-secondary" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">See my first questions ›</a>
+              <p style="font-size:14px;color:#185FA5;margin:6px 0 0;">A short list to bring to your doctor</p>
             </div>
           </div>
 
@@ -182,55 +187,49 @@
         <a class="thumb" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/Starthere.jpg" alt="People jogging with the word Start on the track" />
         </a>
-        <div class="card-title">
-          <a href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">Start Here</a>
-        </div>
+        <div class="card-title">Start Here</div>
         <p class="card-desc">A short list of questions to ask your doctor.</p>
+        <a class="card-btn" href="#" data-open="startModal" aria-haspopup="dialog" aria-controls="startModal">See my first questions &#8250;</a>
       </div>
 
       <div class="card">
         <a class="thumb" href="./diagnosis/diagnosis.html">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/AfterDiagnosis.jpg" alt="After diagnosis image" />
         </a>
-        <div class="card-title">
-          <a href="./diagnosis/diagnosis.html">Questions to ask after being diagnosed</a>
-        </div>
+        <div class="card-title">Questions to ask after being diagnosed</div>
+        <a class="card-btn" href="./diagnosis/diagnosis.html">Open this section &#8250;</a>
       </div>
 
       <div class="card">
         <a class="thumb" href="./choosingtreatment/choosingtreatment.html">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/ChoosingTreatment.jpg" alt="Choosing treatment image" />
         </a>
-        <div class="card-title">
-          <a href="./choosingtreatment/choosingtreatment.html">Questions to explore when choosing treatment</a>
-        </div>
+        <div class="card-title">Questions to explore when choosing treatment</div>
+        <a class="card-btn" href="./choosingtreatment/choosingtreatment.html">Open this section &#8250;</a>
       </div>
 
       <div class="card">
         <a class="thumb" href="./treatment/treatment.html">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/DuringTreatment.jpg" alt="During treatment image" />
         </a>
-        <div class="card-title">
-          <a href="./treatment/treatment.html">Questions to ask during treatment</a>
-        </div>
+        <div class="card-title">Questions to ask during treatment</div>
+        <a class="card-btn" href="./treatment/treatment.html">Open this section &#8250;</a>
       </div>
 
       <div class="card">
         <a class="thumb" href="./aftertreatment/aftertreatment.html">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/AfterTreatment.JPG" alt="After treatment image" />
         </a>
-        <div class="card-title">
-          <a href="./aftertreatment/aftertreatment.html">Questions to ask after treatment</a>
-        </div>
+        <div class="card-title">Questions to ask after treatment</div>
+        <a class="card-btn" href="./aftertreatment/aftertreatment.html">Open this section &#8250;</a>
       </div>
 
       <div class="card">
         <a class="thumb" href="./complementary/complementary.html">
           <img src="https://ilonafridman.github.io/BreastCancer_2.0/Complementary%20Therapy.jpg" alt="Complementary therapy image" />
         </a>
-        <div class="card-title">
-          <a href="./complementary/complementary.html">Questions to ask about integrative therapy</a>
-        </div>
+        <div class="card-title">Questions to ask about integrative therapy</div>
+        <a class="card-btn" href="./complementary/complementary.html">Open this section &#8250;</a>
       </div>
     </main>
 
@@ -241,7 +240,7 @@
         <button class="icon-btn close" aria-label="Close dialog" data-close="startModal">✕</button>
 
         <div class="modal-header" aria-describedby="startModalIntro">
-          <h2 id="startModalHeading">Questions to ask your provider</h2>
+          <h2 id="startModalHeading">Your first questions to ask</h2>
           <div id="startModalIntro" class="lede-panel">
             <p>Many patients wonder, “What should I ask my provider? How can I move forward?”</p>
             <ul>
