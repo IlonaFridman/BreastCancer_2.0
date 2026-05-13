@@ -500,7 +500,61 @@ img{max-width:100%!important;height:auto!important}
       <style>${document.querySelector('style').innerHTML}</style>
       </head><body onload="window.print()">
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
-      <script>(function(){function u(){var c=document.querySelectorAll('.acc-panel input[type="checkbox"]:checked');document.querySelectorAll('p,span,div').forEach(function(el){if(el.childElementCount===0&&/^\d+ question/.test(el.textContent.trim())){el.textContent=c.length+(c.length===1?' question selected.':' questions selected.');}});var ex=document.getElementById('bc-lq');if(ex)ex.remove();var h=document.getElementById('selHint');if(h&&c.length>0){var w=document.createElement('div');w.id='bc-lq';var t=document.createElement('div');t.className='bc-qlist-title';t.textContent='Your selected questions:';w.appendChild(t);var ul=document.createElement('ul');ul.className='bc-qlist';c.forEach(function(cb){var l=cb.closest('label')||cb.parentElement;var tx=l?l.textContent.trim():'';if(tx){var li=document.createElement('li');li.textContent=tx.substring(0,90)+(tx.length>90?'…':'');ul.appendChild(li);}});w.appendChild(ul);h.parentNode.insertBefore(w,h.nextSibling);}document.querySelectorAll('button').forEach(function(btn){var t=btn.textContent.trim().toLowerCase();if(t==='download pdf'||t==='print'){btn.style.opacity=c.length>0?'1':'0.4';btn.style.cursor=c.length>0?'pointer':'not-allowed';}});}document.addEventListener('change',function(e){if(e.target&&e.target.type==='checkbox')u();});var f=document.querySelector('.acc-header');if(f&&f.getAttribute('aria-expanded')==='false')f.click();u();})();</script>
+      
+
+<script id="bc-qfix">
+document.addEventListener('DOMContentLoaded', function() {
+  function updateList() {
+    var checked = document.querySelectorAll('.acc-panel input[type="checkbox"]:checked');
+    // Update count
+    document.querySelectorAll('p,span,div').forEach(function(el) {
+      if (el.childElementCount === 0 && /^\d+ question/.test(el.textContent.trim())) {
+        el.textContent = checked.length + (checked.length === 1 ? ' question selected.' : ' questions selected.');
+      }
+    });
+    // Update live list
+    var ex = document.getElementById('bc-lq');
+    if (ex) ex.remove();
+    var hint = document.getElementById('selHint');
+    if (hint && checked.length > 0) {
+      var wrap = document.createElement('div');
+      wrap.id = 'bc-lq';
+      var title = document.createElement('div');
+      title.className = 'bc-qlist-title';
+      title.textContent = 'Your selected questions:';
+      wrap.appendChild(title);
+      var ul = document.createElement('ul');
+      ul.className = 'bc-qlist';
+      checked.forEach(function(cb) {
+        var label = cb.closest('label') || cb.parentElement;
+        var text = label ? label.textContent.trim() : '';
+        if (text) {
+          var li = document.createElement('li');
+          li.textContent = text.substring(0, 90) + (text.length > 90 ? '...' : '');
+          ul.appendChild(li);
+        }
+      });
+      wrap.appendChild(ul);
+      hint.parentNode.insertBefore(wrap, hint.nextSibling);
+    }
+    // Button states
+    document.querySelectorAll('button').forEach(function(btn) {
+      var t = btn.textContent.trim().toLowerCase();
+      if (t === 'download pdf' || t === 'print') {
+        btn.style.opacity = checked.length > 0 ? '1' : '0.4';
+        btn.style.cursor = checked.length > 0 ? 'pointer' : 'not-allowed';
+      }
+    });
+  }
+  document.addEventListener('change', function(e) {
+    if (e.target && e.target.type === 'checkbox') updateList();
+  });
+  // Pre-open first accordion
+  var firstBtn = document.querySelector('.acc-header');
+  if (firstBtn && firstBtn.getAttribute('aria-expanded') === 'false') firstBtn.click();
+  updateList();
+});
+</script>
 </body></html>`;
     const w = window.open('', '_blank');
     w.document.open(); w.document.write(html); w.document.close();
