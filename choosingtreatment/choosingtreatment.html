@@ -12,7 +12,7 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Choosing treatment questions | Breast Cancer Guide</title>
+<title>Choosing treatment | Breast Cancer Guide</title>
 <style>
   :root{
     --bg:#ffffff; --ink:#111827; --line:#d1d5db;
@@ -563,10 +563,7 @@
       <style>${document.querySelector('style').innerHTML}</style>
       </head><body onload="window.print()">
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
-      
-<style>.selected-question-list{list-style:none;padding:0;margin:8px 0 0}.selected-question-list li{font-size:12px;padding:4px 0 4px 20px;border-bottom:1px solid #eee;position:relative}.selected-question-list li::before{content:"✓";position:absolute;left:4px;color:#2a7ae2;font-weight:bold}</style>
-<script>(function(){function updateList(){var checked=document.querySelectorAll('.acc-panel input[type="checkbox"]:checked');var listId='sel-q-list';var ex=document.getElementById(listId);if(ex)ex.remove();var countEls=document.querySelectorAll('p,span,div');countEls.forEach(function(el){if(el.childElementCount===0&&el.textContent.match(/\d+ question/)){el.textContent=checked.length+(checked.length===1?' question selected.':' questions selected.');}});if(checked.length>0){var ul=document.createElement('ul');ul.id=listId;ul.className='selected-question-list';checked.forEach(function(cb){var label=cb.closest('label')||cb.parentElement;var text=label?label.textContent.trim():cb.value;var li=document.createElement('li');li.textContent=text.substring(0,80)+(text.length>80?'...':'');ul.appendChild(li);});var dBtn=document.querySelector('.right-col,#right-panel,.sidebar');if(dBtn)dBtn.appendChild(ul);}document.querySelectorAll('button').forEach(function(btn){var t=btn.textContent.trim().toLowerCase();if(t==='download pdf'||t==='print'){btn.style.opacity=checked.length>0?'1':'0.45';}});}document.addEventListener('change',function(e){if(e.target&&e.target.type==='checkbox')updateList();});updateList();})();</script>
-</body></html>`;
+      </body></html>`;
     const w = window.open('', '_blank');
     w.document.open(); w.document.write(html); w.document.close();
   }
