@@ -23,7 +23,7 @@
   .container{max-width:1100px;margin:42px auto;padding:0 20px}
   .layout{display:grid;grid-template-columns:1fr 380px;gap:42px;align-items:start}
 
-  /* ==== HOME BUTTON â styles ==== */
+  /* ==== HOME BUTTON Ã¢ÂÂ styles ==== */
   .home-link{
     position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
     width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
@@ -31,7 +31,7 @@
   .home-link:hover{transform:translateY(-1px)}
   .home-link:focus-visible{outline:none;box-shadow:var(--ring)}
   .home-link svg{width:22px;height:22px;fill:#374151}
-  /* ==== HOME BUTTON â styles END ==== */
+  /* ==== HOME BUTTON Ã¢ÂÂ styles END ==== */
 
   h1.slide-title {
     font-size: clamp(2rem, 2.2vw + 1.2rem, 2.75rem);
@@ -74,7 +74,7 @@
     font-size:22px;
   }
   .acc-header::before{
-    content:"â¸";
+    content:"Ã¢ÂÂ¸";
     position:absolute;
     left:14px; top:50%;
     transform:translateY(-50%);
@@ -82,7 +82,7 @@
     color:#4b5563;
     opacity:.95;
   }
-  .acc-header[aria-expanded="true"]::before{ content:"â¾"; }
+  .acc-header[aria-expanded="true"]::before{ content:"Ã¢ÂÂ¾"; }
   .acc-header:hover{background:var(--panel-hover);transform:translateY(-1px)}
   .acc-header:focus-visible{outline:none;box-shadow:var(--ring)}
   .acc-header .cat-icon{width:26px;height:26px;flex:0 0 26px;}
@@ -166,7 +166,7 @@
           <li><strong>Step 1:</strong> Select one or more sections to see the questions.</li>
           <li><strong>Step 2: Select 3-5 questions</strong> you want to include in your handout.</li>
           <li><strong>Step 3: </strong> Download or print the handout to bring to your care team.</li>
-          <li><strong>Step 4:</strong> Select <strong>âOnline Resources'</strong> to find more information.</li>
+          <li><strong>Step 4:</strong> Select <strong>Ã¢ÂÂOnline Resources'</strong> to find more information.</li>
         </ul>
 
         <div class="toolbar" role="group" aria-label="Expand or collapse all">
@@ -190,7 +190,7 @@
         <button id="downloadPdfBtn" class="tool-btn" type="button" disabled>Download PDF</button>
         <button id="printBtn" class="tool-btn" type="button" disabled>Print</button>
 
-        <p class="hint">Tip: Check any number of questions youâd like to include in the handout</p>
+        <p class="hint">Tip: Check any number of questions youÃ¢ÂÂd like to include in the handout</p>
       </aside>
     </section>
   </main>
@@ -220,7 +220,7 @@
       'What should I do if I start to feel emotionally overwhelmed?'
     ]},
     { title: 'Ask financial services about financial support', questions: [
-      'The cost of my treatment is highâwhat options do I have for financial assistance?',
+      'The cost of my treatment is highÃ¢ÂÂwhat options do I have for financial assistance?',
       'Can someone help me understand my insurance coverage better?'
     ]},
     { title: 'Ask a nurse navigator about your treatment and life balance', questions: [
@@ -236,7 +236,7 @@
   const RECOMMENDATIONS = [
     '<b>Consider bringing a friend or loved one</b> to help you remember information shared during your appointment.',
     '<b>Learn about your specific condition</b> from trusted sources of information.',
-    '<b>Your healthcare team welcomes your questions.</b> Donât hesitate to ask to clarify anything you\'re unsure about.',
+    '<b>Your healthcare team welcomes your questions.</b> DonÃ¢ÂÂt hesitate to ask to clarify anything you\'re unsure about.',
     '<b>Your questions are important.</b> Sharing your questions at the beginning of the appointment will help address your concerns.',
     '<b>Stay connected between visits.</b> Use the patient portal, phone, or email to reach the team when questions arise.',
     '<b>Connect with others.</b> Support groups, social workers, and patient advocates can provide emotional support and resources.'
@@ -364,9 +364,9 @@
       <div class="panel">
         <p>Here are the questions you choose to ask your doctors.</p>
         <ul>
-          <li>Your doctors and nurses are happy to answer your questions. Donât hesitate to ask!</li>
-          <li>It's okay to ask different doctors for help. Each one is an expert on a different part of your careâreach more than one expert!</li>
-          <li>Think about your most important questions for today. If you have more than 3â5 questions, you might need more than one visit to clarify all of them.</li>
+          <li>Your doctors and nurses are happy to answer your questions. DonÃ¢ÂÂt hesitate to ask!</li>
+          <li>It's okay to ask different doctors for help. Each one is an expert on a different part of your careÃ¢ÂÂreach more than one expert!</li>
+          <li>Think about your most important questions for today. If you have more than 3Ã¢ÂÂ5 questions, you might need more than one visit to clarify all of them.</li>
         </ul>
       </div>`;
 
@@ -487,7 +487,79 @@
       <style>${document.querySelector('style').innerHTML}</style>
       </head><body onload="window.print()">
         <div style="padding:24px;max-width:850px;margin:0 auto">${handoutHTML(grouped)}</div>
-      </body></html>`;
+      
+<style>
+.selected-question-list { list-style: none; padding: 0; margin: 8px 0 0; }
+.selected-question-list li { font-size: 12px; color: var(--text-color, #333); padding: 4px 0 4px 20px; border-bottom: 1px solid #eee; position: relative; }
+.selected-question-list li::before { content: "\2713"; position: absolute; left: 4px; color: #2a7ae2; font-weight: bold; }
+.download-btn, .print-btn { opacity: 0.45; pointer-events: none; transition: opacity 0.2s; }
+.download-btn.active, .print-btn.active { opacity: 1; pointer-events: auto; }
+</style>
+<script>
+(function() {
+  function updateSelectedList() {
+    var checked = document.querySelectorAll('.acc-panel input[type="checkbox"]:checked');
+    var countEl = document.querySelector('.question-count, [class*="question-count"]');
+    var rightPanel = document.querySelector('.right-col, .right-panel, .sidebar, [class*="right"]');
+
+    // Update counter text
+    var countTexts = document.querySelectorAll('p, span, div');
+    countTexts.forEach(function(el) {
+      if (el.childElementCount === 0 && el.textContent.match(/\d+ question/)) {
+        el.textContent = checked.length + (checked.length === 1 ? ' question selected.' : ' questions selected.');
+      }
+    });
+
+    // Show/hide selected list
+    var listId = 'selected-q-list';
+    var existing = document.getElementById(listId);
+    if (existing) existing.remove();
+
+    if (checked.length > 0 && rightPanel) {
+      var ul = document.createElement('ul');
+      ul.id = listId;
+      ul.className = 'selected-question-list';
+      checked.forEach(function(cb) {
+        var label = cb.closest('label') || cb.parentElement;
+        var text = label ? label.textContent.trim() : cb.value;
+        var li = document.createElement('li');
+        li.textContent = text.substring(0, 80) + (text.length > 80 ? '...' : '');
+        ul.appendChild(li);
+      });
+
+      // Insert after the count text
+      var downloadBtn = document.querySelector('button[onclick*="pdf"], button[onclick*="PDF"], [class*="download"]');
+      if (downloadBtn) {
+        downloadBtn.parentElement.insertBefore(ul, downloadBtn);
+      } else {
+        rightPanel.appendChild(ul);
+      }
+    }
+
+    // Activate download/print when questions selected
+    document.querySelectorAll('button').forEach(function(btn) {
+      var txt = btn.textContent.trim().toLowerCase();
+      if (txt === 'download pdf' || txt === 'print') {
+        if (checked.length > 0) {
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+        } else {
+          btn.style.opacity = '0.45';
+        }
+      }
+    });
+  }
+
+  // Bind to all checkboxes
+  document.addEventListener('change', function(e) {
+    if (e.target && e.target.type === 'checkbox') updateSelectedList();
+  });
+
+  // Run once on load
+  updateSelectedList();
+})();
+</script>
+</body></html>`;
     const w = window.open('', '_blank');
     w.document.open(); w.document.write(html); w.document.close();
   }
@@ -513,7 +585,7 @@
     a.href = url; a.download = 'questions-handout.pdf'; a.click();
     URL.revokeObjectURL(url);
     const body = encodeURIComponent(
-      'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded itâplease see the downloaded file.'
+      'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded itÃ¢ÂÂplease see the downloaded file.'
     );
     window.location.href = `mailto:?subject=${encodeURIComponent('Questions Handout')}&body=${body}`;
   }
