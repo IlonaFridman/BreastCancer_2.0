@@ -59,13 +59,13 @@
 
   /* LEFT (Accordion) */
   .stack{display:flex;flex-direction:column;gap:14px;min-width:300px}
-  .acc-header{
+  .acc-header {
     width:100%;display:flex;align-items:center;gap:10px;
     padding:18px 20px 18px 46px;border:1px solid var(--line);
     background:var(--panel);border-radius:6px;font-weight:800;cursor:pointer;
     text-align:left;position:relative;transition:background-color .15s,transform .06s;
     font-size:22px;
-  }
+   width: 100%;}
 .acc-header::before{ ...mask chevron..., transform:translateY(-50%) rotate(-90deg) }
 .acc-header[aria-expanded="true"]::before{ transform:translateY(-50%) rotate(0deg) }
   .acc-header:hover{background:var(--panel-hover);transform:translateY(-1px)}
