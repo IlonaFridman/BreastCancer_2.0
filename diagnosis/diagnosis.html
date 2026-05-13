@@ -12,7 +12,7 @@
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Questions to Ask - Diagnosis</title>
+<title>Questions after diagnosis | Breast Cancer Guide</title>
 <style>
   :root{
     --bg:#ffffff; --ink:#111827; --line:#d1d5db;
@@ -23,7 +23,7 @@
   .container{max-width:1100px;margin:42px auto;padding:0 20px}
   .layout{display:grid;grid-template-columns:1fr 380px;gap:42px;align-items:start}
 
-  /* ==== HOME BUTTON – styles ==== */
+  /* ==== HOME BUTTON â styles ==== */
   .home-link{
     position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
     width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
@@ -31,7 +31,7 @@
   .home-link:hover{transform:translateY(-1px)}
   .home-link:focus-visible{outline:none;box-shadow:var(--ring)}
   .home-link svg{width:22px;height:22px;fill:#374151}
-  /* ==== HOME BUTTON – styles END ==== */
+  /* ==== HOME BUTTON â styles END ==== */
 
   /* Slide heading */
   h1.slide-title {
@@ -61,7 +61,7 @@
 
   /* LEFT (Accordion) */
   .stack{display:flex;flex-direction:column;gap:14px;min-width:300px}
-  .acc-header{
+  .acc-header {
     width:100%;display:flex;align-items:center;gap:10px;
     padding:18px 20px 18px 46px;border:1px solid var(--line);
     background:var(--panel);border-radius:6px;font-weight:800;cursor:pointer;
@@ -69,11 +69,11 @@
     font-size:22px;
   }
   .acc-header::before{
-    content:"▸";
+    content:"â¸";
     position:absolute; left:14px; top:50%; transform:translateY(-50%);
     font-size:35px; color:#4b5563; opacity:.95;
   }
-  .acc-header[aria-expanded="true"]::before{ content:"▾" }
+  .acc-header[aria-expanded="true"]::before{ content:"â¾" }
   .acc-header:hover{background:var(--panel-hover);transform:translateY(-1px)}
   .acc-header:focus-visible{outline:none;box-shadow:var(--ring)}
   .acc-header .cat-icon{width:26px;height:26px;flex:0 0 26px;}
@@ -131,8 +131,8 @@
 </style>
 </head>
 <body>
-  <!-- ==== HOME BUTTON – element ==== -->
-  <a class="home-link" href="https://ilonafridman.github.io/BreastCancer.github.io/home.html" aria-label="Go to Home">
+  <!-- ==== HOME BUTTON â element ==== -->
+  <a class="home-link" href="https://ilonafridman.github.io/BreastCancer_2.0/home.html" aria-label="Go to Home">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
   </a>
 
@@ -147,7 +147,7 @@
         <li><strong>Step 1:</strong> Select one or more sections to see the questions.</li>
         <li><strong>Step 2: Select 3-5 questions</strong> you want to include in your handout.</li>
         <li><strong>Step 3: </strong> Download or print the handout to bring to your care team.</li>
-        <li><strong>Step 4:</strong> Select <strong>‘Online Resources'</strong> to find more information.</li>
+        <li><strong>Step 4:</strong> Select <strong>âOnline Resources'</strong> to find more information.</li>
       </ul>
 
       <div class="toolbar" role="group" aria-label="Expand or collapse all">
@@ -159,12 +159,12 @@
     </div>
 
     <aside class="side" aria-label="Actions">
-      <a class="cta" href="https://ilonafridman.github.io/BreastCancer.github.io/home.html">Go back to the beginning</a>
-      <a class="cta" href="https://ilonafridman.github.io/BreastCancer.github.io/diagnosis/diagnosisinfo.html">Online Resources</a>
+      <a class="cta" href="https://ilonafridman.github.io/BreastCancer_2.0/home.html">Go back to the beginning</a>
+      <a class="cta" href="https://ilonafridman.github.io/BreastCancer_2.0/diagnosis/diagnosisinfo.html">Online Resources</a>
 
       <div class="pic-wrap">
         <img class="pic"
-             src="https://ilonafridman.github.io/BreastCancer.github.io/diagnosis/Patient%20and%20a%20doctor.jpg"
+             src="https://ilonafridman.github.io/BreastCancer_2.0/diagnosis/Patient%20and%20a%20doctor.jpg"
              alt="Patient speaking with a doctor" />
       </div>
 
@@ -186,20 +186,20 @@
   const DATA = [
     { title: 'General questions to ask', questions: [
       'How was this diagnosis made?', 'What is my type of breast cancer?',
-      'Are there any additional tests I need to undergo?', 'What do “grade”, “stage”, “margin” mean?',
+      'Are there any additional tests I need to undergo?', 'What do âgradeâ, âstageâ, âmarginâ mean?',
       'Is it necessary to test for tumor markers in my case?', 'Should I be tested for estrogen receptors?',
       'How quickly does my cancer grow?', 'Am I at an increased risk of any other type of cancer?',
-      'Do I need to do genetic testing?', 'What are the risks to my family because of my diagnosis?', 'Do I need a reproductive specialist’s consultation?', 'When should I search for a second opinion?'
+      'Do I need to do genetic testing?', 'What are the risks to my family because of my diagnosis?', 'Do I need a reproductive specialistâs consultation?', 'When should I search for a second opinion?'
     ]},
     { title: 'When should I decide upon treatment', questions: [
       'How much time do I have to decide about my treatment?', 'How long does it take to hear back after I complete my tests?'
     ]},
     { title: 'Questions about healthcare team', questions: [
-      'Who will be part of my care team, and what is each person’s role?', 'Which doctors should I be seeing and when?',
+      'Who will be part of my care team, and what is each personâs role?', 'Which doctors should I be seeing and when?',
       'Is there a patient navigator or social worker I can talk to?', 'Who else should I talk to?', 'What should be my next step?'
     ]},
     { title: 'Ask a nurse where to find information', questions: [
-      'How could I access or use “my chart”?', 'Where do I get additional information on breast cancer?', 'How long does it take for a doctor to answer my questions that I ask using my chart?'
+      'How could I access or use âmy chartâ?', 'Where do I get additional information on breast cancer?', 'How long does it take for a doctor to answer my questions that I ask using my chart?'
     ]},
     { title: 'Ask a social worker about support and coping', questions: [
       'Are there support groups or counseling services you recommend?', 'What should I tell my family and friends about breast cancer?',
@@ -214,7 +214,7 @@
   const RECOMMENDATIONS = [
     '<b>Consider bringing a friend or loved one</b> to help you remember information shared during your appointment.',
     '<b>Learn about your specific condition</b> from trusted sources of information.',
-    '<b>Your healthcare team welcomes your questions.</b> Don’t hesitate to ask to clarify anything you\'re unsure about.',
+    '<b>Your healthcare team welcomes your questions.</b> Donât hesitate to ask to clarify anything you\'re unsure about.',
     '<b>Your questions are important.</b> Sharing your questions at the beginning of the appointment will help address your concerns.',
     '<b>Stay connected between visits.</b> Use the patient portal, phone, or email to reach the team when questions arise.',
     '<b>Connect with others.</b> Support groups, social workers, and patient advocates can provide emotional support and resources.'
@@ -351,9 +351,9 @@
       <div class="panel">
         <p>Here are the questions you choose to ask your doctors.</p>
         <ul>
-          <li>Your doctors and nurses are happy to answer your questions. Don’t hesitate to ask!</li>
-          <li>It's okay to ask different doctors for help. Each one is an expert on a different part of your care—reach more than one expert!</li>
-          <li>Think about your most important questions for today. If you have more than 3–5 questions, you might need more than one visit to clarify all of them.</li>
+          <li>Your doctors and nurses are happy to answer your questions. Donât hesitate to ask!</li>
+          <li>It's okay to ask different doctors for help. Each one is an expert on a different part of your careâreach more than one expert!</li>
+          <li>Think about your most important questions for today. If you have more than 3â5 questions, you might need more than one visit to clarify all of them.</li>
         </ul>
       </div>`;
 
@@ -500,7 +500,7 @@
     URL.revokeObjectURL(url);
 
     const body = encodeURIComponent(
-      'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded it—please see the downloaded file.'
+      'Attached is my Questions Handout (PDF). If the attachment did not appear, I just downloaded itâplease see the downloaded file.'
     );
     window.location.href = `mailto:?subject=${encodeURIComponent('Questions Handout')}&body=${body}`;
   }
