@@ -164,7 +164,9 @@ h1.slide-title {
   .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; color:#fff; }
   .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.85; line-height:1.2; color:#fff; }
   .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
-
+  .jb-btn.active{ background:#185FA5; color:#fff; border-color:#185FA5; }
+  .jb-btn.active::before{ content:"●"; font-size:8px; margin-right:2px; }
+  .jb-btn:not(.active)::before{ content:"○"; font-size:8px; margin-right:2px; color:#aaa; }
   .journey-bar{ display:flex; align-items:center; gap:8px; padding:8px 16px; background:#f0f7ff; border-bottom:1px solid #d0e4f5; flex-wrap:wrap; }
   .jb-home{ display:inline-flex; align-items:center; gap:5px; padding:5px 12px; border-radius:20px; background:#fff; border:1px solid #c5d8ec; color:#5F5E5A; font-size:12px; font-weight:600; text-decoration:none; }
   .jb-home:hover{ background:#e6f1fb; }
