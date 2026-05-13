@@ -23,17 +23,7 @@
   .container{max-width:1100px;margin:42px auto;padding:0 20px}
   .layout{display:grid;grid-template-columns:1fr 380px;gap:42px;align-items:start}
 
-  /* ==== HOME BUTTON – styles ==== */
-.home-link{
-  position:fixed; inset:14px auto auto 14px; z-index:50; display:inline-flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.12); text-decoration:none;
-}
-.home-link:hover{transform:translateY(-1px)}
-.home-link:focus-visible{outline:none;box-shadow:var(--ring)}
-.home-link svg{width:22px;height:22px;fill:#374151}
-  .home-link::after{ content:none !important; display:none !important; }
-/* ==== HOME BUTTON – styles END ==== */
-    h1.slide-title {
+h1.slide-title {
         font-size: clamp(2rem, 2.2vw + 1.2rem, 2.75rem);
         line-height: 1.2;
         margin: 0 0 0.5rem;
@@ -156,13 +146,13 @@
   .header{ display:flex; gap:12px; justify-content:flex-end; align-items:center; padding:10px 16px; background:#f0f7ff; border-bottom:1.5px solid #b5d4f4; }
   .top-button{ appearance:none; font-family:inherit; cursor:pointer; display:inline-flex; align-items:flex-start; justify-content:flex-start; text-decoration:none; transition:transform .06s ease, background .15s; }
   .nav-btn-text{ display:flex; flex-direction:column; gap:1px; }
-  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; }
-  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.7; line-height:1.2; }
+  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; color:#fff; }
+  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.85; line-height:1.2; color:#fff; }
   .nav-card-btn svg{ flex-shrink:0; margin-top:2px; stroke:#185FA5; }
 
   .nav-btn-text{ display:flex; flex-direction:column; gap:1px; }
-  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; }
-  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.7; line-height:1.2; }
+  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; color:#fff; }
+  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.85; line-height:1.2; color:#fff; }
   .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
 
   .site-header{ display:flex; gap:12px; justify-content:space-between; align-items:center; padding:8px 16px; background:#f0f7ff; border-bottom:1.5px solid #b5d4f4; flex-wrap:wrap; }
@@ -172,11 +162,11 @@
   .home-btn:hover{ background:#0C447C; transform:translateY(-1px); }
   .home-btn svg{ stroke:#fff; flex-shrink:0; }
   .top-button{ appearance:none; font-family:inherit; cursor:pointer; display:inline-flex; align-items:flex-start; justify-content:flex-start; text-decoration:none; transition:transform .06s ease, background .15s; }
-  .nav-card-btn{ background:#fff; color:#0C447C; border:1.5px solid #b5d4f4; padding:7px 12px; border-radius:10px; gap:7px; }
-  .nav-card-btn:hover{ background:#e6f1fb; transform:translateY(-1px); }
+  .nav-card-btn{ background:#185FA5; color:#fff; border:1.5px solid #185FA5; padding:7px 12px; border-radius:10px; gap:7px; }
+  .nav-card-btn:hover{ background:#0C447C; border-color:#0C447C; transform:translateY(-1px); }
   .nav-btn-text{ display:flex; flex-direction:column; gap:1px; }
-  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; }
-  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.7; line-height:1.2; }
+  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; color:#fff; }
+  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.85; line-height:1.2; color:#fff; }
   .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
 </style>
 </head>
@@ -195,15 +185,15 @@
           <button class="ft-btn" data-size="large" aria-label="Large text size" style="font-size:17px;">A+</button>
         </span>
         <a class="top-button nav-card-btn" href="../careteam.html">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"/><path d="M3 21c0-4 4-7 9-7s9 3 9 7"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"/><path d="M3 21c0-4 4-7 9-7s9 3 9 7"/></svg>
           <span class="nav-btn-text"><span class="nav-btn-main">Meet your care team</span><span class="nav-btn-sub">Who does what in your care</span></span>
         </a>
         <a class="top-button nav-card-btn" href="../information.html">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           <span class="nav-btn-text"><span class="nav-btn-main">Trusted websites</span><span class="nav-btn-sub">Safe places to learn more</span></span>
         </a>
         <a class="top-button nav-card-btn" href="../instructions.html">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           <span class="nav-btn-text"><span class="nav-btn-main">How to use this guide</span><span class="nav-btn-sub">Instructions and tips</span></span>
         </a>
       </div>
