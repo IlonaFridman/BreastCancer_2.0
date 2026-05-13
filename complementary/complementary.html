@@ -152,10 +152,42 @@
     .layout{grid-template-columns:1fr;gap:28px}
     .side .cta{width:100%;min-width:unset}
   }
+
+  .header{ display:flex; gap:12px; justify-content:flex-end; align-items:center; padding:10px 16px; background:#f0f7ff; border-bottom:1.5px solid #b5d4f4; }
+  .top-button{ appearance:none; font-family:inherit; cursor:pointer; display:inline-flex; align-items:flex-start; justify-content:flex-start; text-decoration:none; transition:transform .06s ease, background .15s; }
+  .nav-card-btn{ background:#fff; color:#0C447C; border:1.5px solid #b5d4f4; padding:7px 12px; border-radius:10px; gap:7px; }
+  .nav-card-btn:hover{ background:#e6f1fb; transform:translateY(-1px); }
+  .nav-btn-text{ display:flex; flex-direction:column; gap:1px; }
+  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; }
+  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.7; line-height:1.2; }
+  .nav-card-btn svg{ flex-shrink:0; margin-top:2px; stroke:#185FA5; }
+
+  .site-header{ display:flex; gap:12px; justify-content:flex-end; align-items:center; padding:10px 16px; background:#f0f7ff; border-bottom:1.5px solid #b5d4f4; }
+  .nav-card-btn{ appearance:none; font-family:inherit; cursor:pointer; display:inline-flex; align-items:flex-start; gap:7px; text-decoration:none; background:#fff; color:#0C447C; border:1.5px solid #b5d4f4; padding:7px 12px; border-radius:10px; transition:background .15s, transform .06s; }
+  .nav-card-btn:hover{ background:#e6f1fb; transform:translateY(-1px); }
+  .nav-btn-text{ display:flex; flex-direction:column; gap:1px; }
+  .nav-btn-main{ font-size:12px; font-weight:700; line-height:1.2; }
+  .nav-btn-sub{ font-size:10px; font-weight:400; opacity:0.7; line-height:1.2; }
+  .nav-card-btn svg{ flex-shrink:0; margin-top:2px; }
 </style>
 </head>
 <body>
-   <!-- ==== HOME BUTTON – element ==== -->
+<header class="site-header" role="banner">
+      <a class="nav-card-btn" href="../careteam.html">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"/><path d="M3 21c0-4 4-7 9-7s9 3 9 7"/></svg>
+        <span class="nav-btn-text"><span class="nav-btn-main">Meet your care team</span><span class="nav-btn-sub">Who does what in your care</span></span>
+      </a>
+      <a class="nav-card-btn" href="../information.html">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="nav-btn-text"><span class="nav-btn-main">Trusted websites</span><span class="nav-btn-sub">Safe places to learn more</span></span>
+      </a>
+      <a class="nav-card-btn" href="../instructions.html">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="nav-btn-text"><span class="nav-btn-main">How to use this guide</span><span class="nav-btn-sub">Instructions and tips</span></span>
+      </a>
+    </header>
+ 
+  <!-- ==== HOME BUTTON – element ==== -->
   <a class="home-link" href="https://ilonafridman.github.io/BreastCancer_2.0/home.html" aria-label="Go to Home">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2.5 10.1a1 1 0 0 0-.4.8v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-5h4v5a1 1 0 0 0 1 1h5.9a1 1 0 0 0 1-1v-9a1 1 0 0 0-.4-.8L12 3.1z"/></svg>
   </a>
