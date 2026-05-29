@@ -1,131 +1,370 @@
 <!-- file: instructions.html -->
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Care Questions — Instructions</title>
-    <meta name="description" content="Guide and instructions for using Care Questions." />
-    <style>
-      :root{
-        --bg:#f6f9fc; --card:#fff; --ink:#0f172a; --muted:#475569;
-        --ring:rgba(59,130,246,.45); --shadow:0 10px 25px rgba(2,8,23,.12), 0 2px 6px rgba(2,8,23,.08);
-        --radius:22px; --brand:#2563eb; --brand-strong:#1d4ed8;
-      }
-      *{ box-sizing:border-box }
-      html,body{ height:100% }
-      body{
-        margin:0; font-family:Arial, ui-sans-serif, system-ui, -apple-system, "Helvetica Neue";
-        color:var(--ink); background:var(--bg);
-      }
-      .wrap{ min-height:100%; display:flex; align-items:flex-start; justify-content:center; padding:28px 16px; }
-      .card{
-        position:relative; width:clamp(320px, 960px, 92vw);
-        background:var(--card); border:1px solid #e5e7eb; border-radius:var(--radius);
-        box-shadow:var(--shadow); padding:20px; overflow:hidden;
-      }
-      .close{
-        position:absolute; right:10px; top:10px; width:36px; height:36px; border-radius:999px; border:none;
-        background:#efefef; cursor:pointer; line-height:36px; text-align:center; font-size:18px;
-        text-decoration:none; color:inherit; display:inline-grid; place-items:center;
-      }
-      .close:focus-visible{ outline:3px solid var(--ring); outline-offset:3px }
-      .layout{ display:grid; gap:16px; grid-template-columns:1fr; }
-      @media (min-width:768px){ .layout{ grid-template-columns:1.3fr 1fr } }
-      h1{ margin:2px 0 10px; font-size:32px; line-height:1.2 }
-      p{ margin:0 0 12px }
-      .lede{ color:var(--muted) }
-      ul{ margin:10px 0 8px 22px }
-      li{ line-height:1.5 }
-      .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
-      .btn{
-        display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:800;
-        border-radius:12px; padding:12px 16px; border:1px solid transparent; cursor:pointer;
-      }
-      .btn-primary{ background:linear-gradient(180deg,var(--brand),var(--brand-strong)); color:#fff; box-shadow:var(--shadow) }
-      .btn-secondary{ background:#f1f5f9; color:#0b2a5d; border-color:#c7d9ea; border:1px solid #c7d9ea }
-      .btn-highlight{ font-size:18px; padding:16px 28px; box-shadow:0 4px 18px rgba(24,95,165,.35); letter-spacing:0.01em; }
-      .btn:focus-visible{ outline:3px solid var(--ring); outline-offset:2px }
-      .media{
-        width:100%; min-height:220px; background:#f7fafc; border:1px solid #e5e7eb; border-radius:16px;
-        overflow:hidden; box-shadow:0 2px 10px rgba(2,8,23,.06)
-      }
-      .media img{ width:100%; height:100%; object-fit:cover; display:block }
-      noscript{
-        display:block; margin:12px 0; color:#b91c1c; font-weight:700;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="wrap" role="main">
-      <section class="card" aria-labelledby="introTitle">
-        <!-- Back to home -->
-        <a class="close" href="home.html" aria-label="Back to home" data-mark-seen>✕</a>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Care Questions — Instructions</title>
+<meta name="description" content="Guide and instructions for using Care Questions." />
+<style>
+:root{
+--bg:#f6f9fc; --card:#fff; --ink:#0f172a; --muted:#475569;
+--ring:rgba(153,53,86,.45); --shadow:0 10px 25px rgba(2,8,23,.12), 0 2px 6px rgba(2,8,23,.08);
+--radius:22px; --brand:#D4537E; --brand-strong:#993556;
+}
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+margin:0; font-family:Arial, ui-sans-serif, system-ui, -apple-system, "Helvetica Neue";
+color:var(--ink); background:var(--bg);
+}
+.wrap{ min-height:100%; display:flex; align-items:flex-start; justify-content:center; padding:28px 16px; }
+.card{
+position:relative; width:clamp(320px, 980px, 92vw);
+background:var(--card); border:1px solid #e5e7eb; border-radius:var(--radius);
+box-shadow:var(--shadow); padding:24px; overflow:hidden;
+}
+.close{
+position:absolute; right:10px; top:10px; width:36px; height:36px; border-radius:999px; border:none;
+background:#efefef; cursor:pointer; line-height:36px; text-align:center; font-size:18px;
+text-decoration:none; color:inherit; display:inline-grid; place-items:center; z-index:2;
+}
+.close:focus-visible{ outline:3px solid var(--ring); outline-offset:3px }
+.layout{ display:grid; gap:24px; grid-template-columns:1fr; align-items:stretch; }
+@media (min-width:768px){ .layout{ grid-template-columns:1.12fr .88fr } }
+h1{ margin:2px 0 10px; font-size:32px; line-height:1.2 }
+p{ margin:0 0 12px }
+.lede{ color:var(--muted) }
+ul{ margin:10px 0 8px 22px }
+li{ line-height:1.5 }
 
-        <div class="layout">
-          <div>
-            <h1 id="introTitle">The guide for your cancer journey</h1>
+.text-col{ display:flex; flex-direction:column; }
+.btn{
+display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; font-weight:800;
+border-radius:12px; padding:12px 16px; border:1px solid transparent; cursor:pointer;
+transition:transform .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+.btn:hover{ transform:translateY(-1px); filter:brightness(1.04) }
+.btn:active{ transform:translateY(0) }
+.btn-primary{ background:linear-gradient(180deg,var(--brand),var(--brand-strong)); color:#fff; box-shadow:var(--shadow) }
+.btn:focus-visible{ outline:3px solid var(--ring); outline-offset:2px }
 
-            <p class="lede">
-              Finding out you have cancer can feel confusing and scary. It might seem like you're getting lots of puzzle pieces of
-              information and it's hard to see the whole picture.
-            </p>
+/* "Ready when you are" now sits directly below the text */
+.end-cta{ margin-top:auto; padding-top:20px; border-top:1px solid #eef2f7; }
+.end-cta h2{ margin:0 0 4px; font-size:22px; line-height:1.25; color:var(--ink) }
+.end-cta .note{ margin:0 0 14px; color:var(--muted) }
+.btn-lg{
+font-size:19px; padding:15px 30px; border-radius:14px; align-self:flex-start;
+animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{
+0%,100%{ box-shadow:0 10px 25px rgba(153,53,86,.28) }
+50%{ box-shadow:0 10px 34px rgba(153,53,86,.55) }
+}
+@media (prefers-reduced-motion: reduce){ .btn-lg{ animation:none } }
 
-            <p><strong>You don’t have to figure it all out at once!</strong></p>
+/* Walkthrough fills the right column and matches the text height exactly */
+.video-col{ display:flex }
+.video-frame{
+width:100%; max-width:340px; height:560px; margin:0 auto;
+border:1px solid #e5e7eb; border-radius:22px; overflow:hidden;
+box-shadow:var(--shadow); background:#F2E2DC;
+}
+@media (min-width:768px){ .video-frame{ height:100%; min-height:460px } }
+.video-frame iframe{ width:100%; height:100%; border:0; display:block }
 
-            <p>We’ve broken things down into several steps that outline your journey. For each step, you'll find:</p>
-            <ul>
-              <li>Questions to help you talk to your doctors and nurses.</li>
-              <li>Good websites with safe and helpful information.</li>
-            </ul>
+noscript{ display:block; margin:12px 0; color:#b91c1c; font-weight:700 }
+</style>
+</head>
+<body>
+<main class="wrap" role="main">
+<section class="card" aria-labelledby="introTitle">
+<a class="close" href="home.html" aria-label="Back to home" data-mark-seen>✕</a>
 
-            <p><strong>You're in control.</strong> Explore the section that feels right for you, or select “Start Here” to see a shorter list of questions.</p>
+<div class="layout">
+<div class="text-col">
+<h1 id="introTitle">The guide for your cancer journey</h1>
+<p class="lede">
+Finding out you have cancer can feel confusing and scary. It might seem like you're getting lots of puzzle pieces of
+information and it's hard to see the whole picture.
+</p>
+<p><strong>You don’t have to figure it all out at once!</strong></p>
+<p>We’ve broken things down into several steps that outline your journey. For each step, you'll find:</p>
+<ul>
+<li>Questions to help you talk to your doctors and nurses.</li>
+<li>Good websites with safe and helpful information.</li>
+</ul>
+<p><strong>You're in control.</strong> Watch the short guide, then explore the section that feels right for you.</p>
 
-            <div class="actions" role="group" aria-label="Instruction actions">
-              <!-- Explore home (no modal) -->
+<div class="end-cta">
+<h2>Ready when you are</h2>
+<p class="note">A short list of questions to ask your doctor.</p>
+<a class="btn btn-primary btn-lg" href="home.html#start" data-mark-seen>Start here</a>
+</div>
+</div>
 
-              <!-- Deep-link to open Start modal on home -->
-              <a class="btn btn-primary btn-highlight" href="home.html#start" data-mark-seen>&#9655; Open “Start here”</a>
-            </div>
+<div class="video-col">
+<div class="video-frame" aria-label="A short animated guide to using Care Questions">
+<iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;How to use Care Questions — a short guide&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --screen:#FDF2F5; --ink:#4B1528; --ink2:#72243E; --rose:#D4537E; --rose-strong:#993556;
+    --teal:#0F6E56; --teal-soft:#E1F5EE; --rose-soft:#FBEAF0; --card:#FFFFFF; --line:rgba(75,21,40,.14);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{background:#F2E2DC;font-family:-apple-system,&quot;Segoe UI&quot;,Roboto,system-ui,sans-serif;color:var(--ink2)}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-            <noscript>
-              Tip: JavaScript is off. “Start here” will still work via the #start link, but your home page won’t remember that you’ve already seen these instructions.
-            </noscript>
-          </div>
+  .stage{position:relative;width:100%;max-width:440px;height:100%;margin:0 auto;background:var(--screen);overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent}
 
-          <figure class="media" aria-label="Breast cancer information booklets">
-            <img
-              src="https://ilonafridman.github.io/BreastCancer_2.0/BreastBooklets.png"
-              alt="A set of breast cancer information booklets laid out together."
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-        </div>
-      </section>
-    </main>
+  .segs{position:absolute;top:14px;left:16px;right:16px;display:flex;gap:5px;z-index:6}
+  .seg{flex:1;height:4px;border-radius:4px;background:rgba(75,21,40,.20);overflow:hidden}
+  .seg b{display:block;height:100%;width:0;background:var(--rose);border-radius:4px}
 
-    <!-- Mark instructions as seen on navigation so home.html won't show the intro modal again this session -->
-    <script>
-      (function () {
-        const INTRO_KEY = 'cq_intro_seen_session_v1';
-        function markSeen(){ try{ sessionStorage.setItem(INTRO_KEY,'1'); }catch(e){} }
+  .scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 30px 104px;opacity:0;pointer-events:none}
+  .scene.on{opacity:1;pointer-events:auto}
+  .h{font-family:&quot;Iowan Old Style&quot;,&quot;Palatino Linotype&quot;,Georgia,&quot;Times New Roman&quot;,serif;font-size:27px;font-weight:600;line-height:1.3;color:var(--ink);margin:0;letter-spacing:-.2px}
+  .sub{font-size:18px;line-height:1.45;color:var(--ink2);margin:15px 0 0}
+  .kicker{font-size:15px;font-weight:600;color:var(--rose-strong);text-transform:none;margin:0 0 20px;letter-spacing:.3px}
 
-        // Mark when clicking any link with data-mark-seen (✕, Explore, Start)
-        document.addEventListener('click', function(e){
-          const a = e.target.closest('a[data-mark-seen]');
-          if (a) { markSeen(); }
-        });
+  .ic{width:84px;height:84px;border-radius:50%;background:var(--rose-soft);display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--rose-strong)}
+  .ic.teal{background:var(--teal-soft);color:var(--teal)}
+  .ic svg{width:42px;height:42px}
 
-        // Also mark on keyboard activation (Enter/Space) for accessibility, if needed
-        document.addEventListener('keydown', function(e){
-          if (e.key !== 'Enter' && e.key !== ' ') return;
-          const a = document.activeElement;
-          if (a && a.matches('a[data-mark-seen]')) { markSeen(); }
-        });
-      })();
-    </script>
-  
+  .steplist{display:flex;flex-direction:column;gap:11px;width:100%;max-width:320px;text-align:left}
+  .step{display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 14px}
+  .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--rose-soft);color:var(--rose-strong);font-weight:600;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .step span{font-size:16px;font-weight:500;color:var(--ink)}
+
+  .pills{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;justify-content:center}
+  .pill{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:11px 18px;font-size:16px;font-weight:600;color:var(--ink)}
+  .pill svg{width:20px;height:20px}.pill .n{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+
+  .card{width:100%;max-width:312px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;text-align:left;box-shadow:0 10px 26px rgba(75,21,40,.12)}
+  .card .ct{font-size:14px;font-weight:600;color:var(--rose-strong);margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .card .ct svg{width:18px;height:18px}
+  .row{display:flex;align-items:center;gap:11px;padding:7px 0;font-size:15px;color:var(--ink)}
+  .box{flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--rose);display:flex;align-items:center;justify-content:center;color:#fff;background:transparent}
+  .box.ck{background:var(--rose);border-color:var(--rose)} .box svg{width:14px;height:14px;opacity:0}.box.ck svg{opacity:1}
+  .cardfoot{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink2);display:flex;align-items:center;gap:8px;justify-content:center}
+  .cardfoot svg{width:17px;height:17px;color:var(--rose-strong)}
+  .siterow{display:flex;align-items:center;gap:11px;padding:8px 0;font-size:15px;color:var(--ink)}
+  .siterow .g{flex:none;width:26px;height:26px;border-radius:7px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center}
+  .siterow .g svg{width:16px;height:16px}
+  .siterow .bar{height:9px;border-radius:5px;background:#EAD7DD;flex:1}
+  .safe{flex:none;display:flex;align-items:center;gap:4px;color:var(--teal);font-size:12.5px;font-weight:600}
+  .safe svg{width:14px;height:14px}
+
+  .cta{position:relative;display:inline-flex;align-items:center;gap:10px;margin-top:8px;background:var(--rose-strong);color:#FFF6F9;font-size:20px;font-weight:600;padding:16px 32px;border-radius:34px;text-decoration:none;box-shadow:0 10px 24px rgba(153,53,86,.4);animation:breathe 2.4s ease-in-out infinite}
+  .cta svg{width:22px;height:22px}
+  .finger{position:absolute;right:-8px;bottom:-26px;width:34px;height:34px;color:var(--ink);animation:tap 1.5s ease-in-out infinite}
+  .finger svg{width:34px;height:34px}
+
+  .brand{position:absolute;left:20px;bottom:24px;display:flex;align-items:center;gap:8px;color:var(--rose-strong);font-size:15px;font-weight:600;z-index:6}
+  .brand svg{width:20px;height:20px}
+  .rail{position:absolute;right:16px;bottom:84px;display:flex;flex-direction:column;gap:13px;z-index:7}
+  .ctl{width:48px;height:48px;border-radius:50%;border:none;background:rgba(75,21,40,.10);color:var(--rose-strong);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .1s}
+  .ctl:active{transform:scale(.92)} .ctl svg{width:24px;height:24px}
+  .overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:5}
+  .overlay.show{display:flex} .overlay svg{width:72px;height:72px;color:rgba(75,21,40,.5)}
+
+  .a1,.a2,.a3,.pop,.r1,.r2,.r3,.r4,.r5,.s1,.s2,.s3{opacity:0}
+  .scene.on .a1{animation:up .55s ease both}
+  .scene.on .a2{animation:up .55s ease .18s both}
+  .scene.on .a3{animation:up .55s ease .36s both}
+  .scene.on .pop{animation:pop .55s cubic-bezier(.2,.7,.3,1.25) .06s both}
+  .scene.on .r1{animation:up .5s ease .10s both}
+  .scene.on .r2{animation:up .5s ease .26s both}
+  .scene.on .r3{animation:up .5s ease .42s both}
+  .scene.on .r4{animation:up .5s ease .58s both}
+  .scene.on .r5{animation:up .5s ease .74s both}
+  .scene.on .s1{animation:pop .5s cubic-bezier(.2,.7,.3,1.25) .2s both}
+  .scene.on .s2{animation:pop .5s cubic-bezier(.2,.7,.3,1.25) .4s both}
+  .scene.on .s3{animation:pop .5s cubic-bezier(.2,.7,.3,1.25) .6s both}
+  @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+  @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+
+  @media (max-width:340px){.h{font-size:24px}.sub{font-size:16px}.step span{font-size:15px}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 class=&quot;sr-only&quot;&gt;How to use Care Questions: a short animated guide. A cancer diagnosis can feel overwhelming, but you do not have to figure it all out at once. Your journey is broken into five steps: after being diagnosed, choosing treatment, during treatment, after treatment, and integrative therapy. In each step you get two things: a checklist of questions to print and bring to your doctors, and safe, helpful websites. When you are ready, start here with a short list of questions.&lt;/h1&gt;
+
+&lt;div class=&quot;stage&quot; id=&quot;stage&quot;&gt;
+ &lt;div class=&quot;segs&quot; id=&quot;segs&quot;&gt;&lt;/div&gt;
+
+ &lt;div class=&quot;scene on&quot; data-i=&quot;0&quot;&gt;
+  &lt;div class=&quot;ic pop&quot; id=&quot;ic0&quot;&gt;&lt;/div&gt;
+  &lt;p class=&quot;h a1&quot;&gt;A cancer diagnosis can feel confusing and scary.&lt;/p&gt;
+  &lt;p class=&quot;sub a2&quot;&gt;That is completely normal.&lt;/p&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;scene&quot; data-i=&quot;1&quot;&gt;
+  &lt;div class=&quot;ic pop&quot; id=&quot;ic1&quot;&gt;&lt;/div&gt;
+  &lt;p class=&quot;h a1&quot;&gt;You don&#x27;t have to figure it all out at once.&lt;/p&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;scene&quot; data-i=&quot;2&quot;&gt;
+  &lt;p class=&quot;kicker a1&quot;&gt;Your journey, one step at a time&lt;/p&gt;
+  &lt;div class=&quot;steplist&quot;&gt;
+   &lt;div class=&quot;step r1&quot;&gt;&lt;div class=&quot;num&quot;&gt;1&lt;/div&gt;&lt;span&gt;After being diagnosed&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;step r2&quot;&gt;&lt;div class=&quot;num&quot;&gt;2&lt;/div&gt;&lt;span&gt;Choosing treatment&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;step r3&quot;&gt;&lt;div class=&quot;num&quot;&gt;3&lt;/div&gt;&lt;span&gt;During treatment&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;step r4&quot;&gt;&lt;div class=&quot;num&quot;&gt;4&lt;/div&gt;&lt;span&gt;After treatment&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;step r5&quot;&gt;&lt;div class=&quot;num&quot;&gt;5&lt;/div&gt;&lt;span&gt;Integrative therapy&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;scene&quot; data-i=&quot;3&quot;&gt;
+  &lt;p class=&quot;h a1&quot;&gt;Open any step. You&#x27;ll find two things.&lt;/p&gt;
+  &lt;div class=&quot;pills&quot;&gt;
+   &lt;div class=&quot;pill s1&quot;&gt;&lt;span class=&quot;n&quot; style=&quot;background:var(--rose-soft);color:var(--rose-strong)&quot;&gt;1&lt;/span&gt;&lt;span id=&quot;pq&quot;&gt;&lt;/span&gt;Questions&lt;/div&gt;
+   &lt;div class=&quot;pill s2&quot;&gt;&lt;span class=&quot;n&quot; style=&quot;background:var(--teal-soft);color:var(--teal)&quot;&gt;2&lt;/span&gt;&lt;span id=&quot;pw&quot;&gt;&lt;/span&gt;Websites&lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;scene&quot; data-i=&quot;4&quot;&gt;
+  &lt;p class=&quot;kicker a1&quot;&gt;1 — Questions for your appointment&lt;/p&gt;
+  &lt;div class=&quot;card pop&quot;&gt;
+   &lt;p class=&quot;ct&quot;&gt;&lt;span id=&quot;cic&quot;&gt;&lt;/span&gt;Pick the questions you want to ask&lt;/p&gt;
+   &lt;div class=&quot;row r2&quot;&gt;&lt;span class=&quot;box ck&quot; id=&quot;b1&quot;&gt;&lt;/span&gt;What type of breast cancer do I have?&lt;/div&gt;
+   &lt;div class=&quot;row r3&quot;&gt;&lt;span class=&quot;box ck&quot; id=&quot;b2&quot;&gt;&lt;/span&gt;What are my treatment options?&lt;/div&gt;
+   &lt;div class=&quot;row r4&quot;&gt;&lt;span class=&quot;box&quot; id=&quot;b3&quot;&gt;&lt;/span&gt;Who is on my care team?&lt;/div&gt;
+   &lt;div class=&quot;cardfoot a3&quot;&gt;&lt;span id=&quot;pr&quot;&gt;&lt;/span&gt;&lt;span id=&quot;dl&quot;&gt;&lt;/span&gt;Print or download to take with you&lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;scene&quot; data-i=&quot;5&quot;&gt;
+  &lt;p class=&quot;kicker a1&quot;&gt;2 — Safe websites to learn more&lt;/p&gt;
+  &lt;div class=&quot;card pop&quot;&gt;
+   &lt;p class=&quot;ct&quot; style=&quot;color:var(--teal)&quot;&gt;&lt;span id=&quot;wic&quot;&gt;&lt;/span&gt;eResources in every step&lt;/p&gt;
+   &lt;div class=&quot;siterow r2&quot;&gt;&lt;span class=&quot;g&quot; id=&quot;g1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;safe&quot;&gt;&lt;span id=&quot;sf1&quot;&gt;&lt;/span&gt;Trusted&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;siterow r3&quot;&gt;&lt;span class=&quot;g&quot; id=&quot;g2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;bar&quot; style=&quot;flex:.7&quot;&gt;&lt;/span&gt;&lt;span class=&quot;safe&quot;&gt;&lt;span id=&quot;sf2&quot;&gt;&lt;/span&gt;Trusted&lt;/span&gt;&lt;/div&gt;
+   &lt;div class=&quot;cardfoot a3&quot;&gt;Reliable information, chosen for you&lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;scene&quot; data-i=&quot;6&quot;&gt;
+  &lt;p class=&quot;h a1&quot;&gt;Ready when you are.&lt;/p&gt;
+  &lt;a class=&quot;cta pop&quot; id=&quot;startBtn&quot; href=&quot;home.html#start&quot; target=&quot;_top&quot;&gt;Start here&lt;span id=&quot;cta-arrow&quot;&gt;&lt;/span&gt;&lt;span class=&quot;finger&quot; id=&quot;ctaFinger&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;p class=&quot;sub a3&quot; style=&quot;margin-top:34px&quot;&gt;A short list of questions to ask your doctor.&lt;/p&gt;
+ &lt;/div&gt;
+
+ &lt;div class=&quot;overlay&quot; id=&quot;overlay&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;brand&quot;&gt;&lt;span id=&quot;brandIcon&quot;&gt;&lt;/span&gt;Care Questions&lt;/div&gt;
+ &lt;div class=&quot;rail&quot;&gt;
+  &lt;button class=&quot;ctl&quot; id=&quot;play&quot; aria-label=&quot;Play or pause&quot;&gt;&lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  var st=&#x27;stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&#x27;;
+  var I={
+    help:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;path d=&quot;M9.4 9.3a2.6 2.6 0 1 1 3.7 2.4c-1 .5-1.1 1-1.1 1.8&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;16.6&quot; r=&quot;.7&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;/&gt;&lt;/svg&gt;&#x27;,
+    heart:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&gt;&lt;path d=&quot;M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z&quot;/&gt;&lt;/svg&gt;&#x27;,
+    chat:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;path d=&quot;M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z&quot;/&gt;&lt;path d=&quot;M8 9h8&quot;/&gt;&lt;path d=&quot;M8 12.3h5&quot;/&gt;&lt;/svg&gt;&#x27;,
+    globe:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;path d=&quot;M3 12h18&quot;/&gt;&lt;path d=&quot;M12 3c2.6 2.7 2.6 15.3 0 18c-2.6-2.7-2.6-15.3 0-18z&quot;/&gt;&lt;/svg&gt;&#x27;,
+    hand:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;path d=&quot;M8 11.5V5.6a1.5 1.5 0 0 1 3 0V11&quot;/&gt;&lt;path d=&quot;M11 11V8.4a1.5 1.5 0 0 1 3 0V11&quot;/&gt;&lt;path d=&quot;M14 11.2V9.8a1.5 1.5 0 0 1 3 0V13.5c0 3.1-2.1 5.2-5.2 5.2-2.1 0-3.9-1-5-3l-1.7-3a1.4 1.4 0 0 1 2.3-1.6L8.4 12&quot;/&gt;&lt;/svg&gt;&#x27;,
+    play:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&gt;&lt;path d=&quot;M7 5v14l11-7z&quot;/&gt;&lt;/svg&gt;&#x27;,
+    pause:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&gt;&lt;rect x=&quot;7&quot; y=&quot;5&quot; width=&quot;3.6&quot; height=&quot;14&quot; rx=&quot;1.4&quot;/&gt;&lt;rect x=&quot;13.4&quot; y=&quot;5&quot; width=&quot;3.6&quot; height=&quot;14&quot; rx=&quot;1.4&quot;/&gt;&lt;/svg&gt;&#x27;,
+    refresh:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;path d=&quot;M20 11a8 8 0 1 0-2 5.3&quot;/&gt;&lt;path d=&quot;M20 4.5V11h-6.5&quot;/&gt;&lt;/svg&gt;&#x27;,
+    check:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M5 12l5 5 9-10&quot;/&gt;&lt;/svg&gt;&#x27;,
+    printer:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;path d=&quot;M6 9V3h12v6&quot;/&gt;&lt;path d=&quot;M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1&quot;/&gt;&lt;rect x=&quot;7&quot; y=&quot;13&quot; width=&quot;10&quot; height=&quot;7&quot; rx=&quot;1&quot;/&gt;&lt;/svg&gt;&#x27;,
+    download:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;path d=&quot;M12 4v10&quot;/&gt;&lt;path d=&quot;M8 11l4 4 4-4&quot;/&gt;&lt;path d=&quot;M5 19h14&quot;/&gt;&lt;/svg&gt;&#x27;,
+    arrow:&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; &#x27;+st+&#x27;&gt;&lt;path d=&quot;M5 12h14&quot;/&gt;&lt;path d=&quot;M13 6l6 6-6 6&quot;/&gt;&lt;/svg&gt;&#x27;
+  };
+  function set(id,svg){var e=document.getElementById(id);if(e)e.innerHTML=svg;}
+  set(&#x27;ic0&#x27;,I.help);set(&#x27;ic1&#x27;,I.heart);set(&#x27;brandIcon&#x27;,I.heart);
+  set(&#x27;pq&#x27;,I.chat);set(&#x27;pw&#x27;,I.globe);set(&#x27;cic&#x27;,I.chat);set(&#x27;wic&#x27;,I.globe);
+  set(&#x27;b1&#x27;,I.check);set(&#x27;b2&#x27;,I.check);set(&#x27;b3&#x27;,I.check);
+  set(&#x27;pr&#x27;,I.printer);set(&#x27;dl&#x27;,I.download);set(&#x27;g1&#x27;,I.globe);set(&#x27;g2&#x27;,I.globe);
+  set(&#x27;sf1&#x27;,I.check);set(&#x27;sf2&#x27;,I.check);set(&#x27;ctaFinger&#x27;,I.hand);set(&#x27;cta-arrow&#x27;,I.arrow);
+  document.getElementById(&#x27;overlay&#x27;).innerHTML=I.play;
+
+  var segWrap=document.getElementById(&#x27;segs&#x27;);
+  var scenes=[].slice.call(document.querySelectorAll(&#x27;.scene&#x27;));
+  for(var k=0;k&lt;scenes.length;k++){var d=document.createElement(&#x27;div&#x27;);d.className=&#x27;seg&#x27;;d.innerHTML=&#x27;&lt;b&gt;&lt;/b&gt;&#x27;;segWrap.appendChild(d);}
+  var fills=[].slice.call(document.querySelectorAll(&#x27;.seg b&#x27;));
+  var dur=[5000,4600,7000,4400,6600,5800,7200];
+
+  var idx=0,playing=true,sceneStart=performance.now(),paused=0;
+  var playBtn=document.getElementById(&#x27;play&#x27;),overlay=document.getElementById(&#x27;overlay&#x27;),stage=document.getElementById(&#x27;stage&#x27;);
+  playBtn.innerHTML=I.pause;
+
+  function goTo(i){
+    idx=i;paused=0;sceneStart=performance.now();
+    scenes.forEach(function(s,n){if(n===i){void s.offsetWidth;s.classList.add(&#x27;on&#x27;);}else s.classList.remove(&#x27;on&#x27;);});
+    fills.forEach(function(f,n){f.style.width=(n&lt;i?&#x27;100%&#x27;:&#x27;0%&#x27;);});
+  }
+  function setPlaying(p){
+    playing=p;
+    if(p){sceneStart=performance.now();playBtn.innerHTML=I.pause;overlay.classList.remove(&#x27;show&#x27;);}
+    else{paused+=performance.now()-sceneStart;playBtn.innerHTML=I.play;overlay.classList.add(&#x27;show&#x27;);}
+  }
+  function atEnd(){return idx===scenes.length-1&amp;&amp;!playing&amp;&amp;(paused+(performance.now()-sceneStart))&gt;=dur[idx];}
+  function loop(now){
+    if(playing){
+      var e=paused+(now-sceneStart),d=dur[idx];
+      fills[idx].style.width=Math.min(e/d,1)*100+&#x27;%&#x27;;
+      if(e&gt;=d){ if(idx&lt;scenes.length-1) goTo(idx+1); else { goTo(0); } }
+    }
+    requestAnimationFrame(loop);
+  }
+  playBtn.addEventListener(&#x27;click&#x27;,function(ev){ev.stopPropagation();if(atEnd()){goTo(0);setPlaying(true);return;}setPlaying(!playing);});
+  stage.addEventListener(&#x27;click&#x27;,function(){if(atEnd()){goTo(0);setPlaying(true);return;}setPlaying(!playing);});
+
+  var startBtn=document.getElementById(&#x27;startBtn&#x27;);
+  startBtn.addEventListener(&#x27;click&#x27;,function(ev){
+    ev.stopPropagation();
+    try{ if(window.parent &amp;&amp; window.parent!==window){ window.parent.postMessage(&#x27;careq:start-here&#x27;,&#x27;*&#x27;); } }catch(e){}
+  });
+
+  goTo(0);
+  requestAnimationFrame(loop);
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"
+        title="How to use Care Questions — a short animated guide"></iframe>
+</div>
+</div>
+</div>
+
+<noscript>
+Tip: JavaScript is off. “Start here” still works via the #start link.
+</noscript>
+</section>
+</main>
+
+<script>
+(function () {
+const INTRO_KEY = 'cq_intro_seen_session_v1';
+function markSeen(){ try{ sessionStorage.setItem(INTRO_KEY,'1'); }catch(e){} }
+document.addEventListener('click', function(e){
+const a = e.target.closest('a[data-mark-seen]');
+if (a) { markSeen(); }
+});
+document.addEventListener('keydown', function(e){
+if (e.key !== 'Enter' && e.key !== ' ') return;
+const a = document.activeElement;
+if (a && a.matches('a[data-mark-seen]')) { markSeen(); }
+});
+window.addEventListener('message', function(e){
+if (e && e.data === 'careq:start-here') { markSeen(); window.location.href = 'home.html#start'; }
+});
+})();
+</script>
+
 <style id="font-toggle-css">
   .font-toggle-wrap{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1.5px solid #b5d4f4;border-radius:8px;padding:3px 7px;margin-right:8px;}
   .font-toggle-label{font-size:11px;color:#888780;margin-right:2px;}
